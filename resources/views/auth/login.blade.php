@@ -1,6 +1,10 @@
 @extends("templates.app")
 
-@vite(['resources/css/login.css'])
+@section('css')
+
+@vite('resources/css/login.css')
+
+@endnsection
 
 @section('content')
 
