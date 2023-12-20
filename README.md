@@ -2,6 +2,8 @@
 
 Groupe test but23_groupeTT
 
+Coucou
+
 ## Version initiale
 
 Pour lancer avec succès une première version de votre site web pendant la phase de développement, il faut exécuter les
