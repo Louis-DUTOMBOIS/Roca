@@ -22,6 +22,11 @@
 
     <p>Nombre de chapitres : {{ $histoire->chapitres->count() }}</p>
 
+    <form method="POST" action="{{ route('startReading') }}">
+        @csrf
+        <input type="hidden" name="histoire_id" value="{{ $histoire->id }}">
+        <button type="submit">Commencer la lecture</button>
+    </form>
 
 </div>
 

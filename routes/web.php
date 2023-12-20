@@ -68,3 +68,9 @@ Route::get('/accueil/filtered', [HistoireControllers::class, 'filteredGenre'])->
 
 
 Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
+
+
+// route pour commencer la lecture d'une histoire depuis sa page de détails
+Route::post('/start-reading', [HistoireController::class, 'startReading'])->name('startReading');
+Route::get('/chapitres/{chapitre_id}', [HistoireController::class, 'showChapitreDetails'])->name('chapitreDetails');
+Route::post('/make-choice', [HistoireController::class, 'makeChoice'])->name('makeChoice');
