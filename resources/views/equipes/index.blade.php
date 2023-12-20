@@ -20,6 +20,7 @@
     <a href="{{route('equipe')}}">Equipe</a>
 
     @auth
+
         {{Auth::user()->name}}
         <a href="{{route("logout")}}"
            onclick="document.getElementById('logout').submit(); return false;">Logout</a>
