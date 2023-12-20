@@ -17,6 +17,7 @@
 
 @auth
         {{Auth::user()->name}}
+        <a href="{{route('histoire.index')}}">Créer une Histoire</a>
         <a href="{{route("logout")}}"
            onclick="document.getElementById('logout').submit(); return false;">Logout</a>
         <form id="logout" action="{{route("logout")}}" method="post">
@@ -31,7 +32,6 @@
 <main>
     @yield("content")
 </main>
-
 <footer>IUT de Lens</footer>
 </body>
 </html>

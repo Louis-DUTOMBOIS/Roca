@@ -1,7 +1,9 @@
 @extends("templates.app")
 
 @section('content')
-    <div style="display: flex; align-items: center; justify-content: center">
+
+    <div style="display: flex;align-items: center; justify-content: center">
+
         <div>
 
             @if(session('type') && session('type') === 'warning')
