@@ -9,11 +9,28 @@ use Illuminate\Http\Request;
 class HistoireController extends Controller
 {
 
+    public function index()
+    {
+        $histoires = Histoire::all();
+        return view('welcome', ['histoires' => $histoires]);
+    }
+
+    public function histoire($id){
+        // TO-DO Modifier le contenu de l'équipe
+
+        // Récupérer la scène en utilisant l'ID
+        $histoire = Histoire::find($id);
+
+        $lecturesTerminees = $histoire->terminees()->where('histoire_id', $id)->sum('nombre');
+
+        return view('histoires.histoire', ['histoire' => $histoire, 'lecturesTerminees' => $lecturesTerminees]);
+    }
+
 
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function createHistoire()
     {
         $genres = Genre::all();
 
@@ -85,17 +102,6 @@ class HistoireController extends Controller
         //
     }
 
-    public function histoire(Request $request){
-        // TO-DO Modifier le contenu de l'équipe
 
-        $histoireId = $request->input('histoire_id');
-
-        // Récupérer la scène en utilisant l'ID
-        $histoire = Histoire::find($histoireId);
-
-        $lecturesTerminees = $histoire->terminees()->where('histoire_id', $histoireId)->sum('nombre');
-
-        return view('histoires/histoire', ['histoire' => $histoire, 'lecturesTerminees' => $lecturesTerminees]);
-    }
 
 }

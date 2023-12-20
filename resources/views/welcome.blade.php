@@ -52,6 +52,7 @@
                             <td>{{ $histoire->titre }}</td>
                             <td>{{ $histoire->pitch }}</td>
                             <td><img src="{{ $histoire->photo }}" alt="Image calculée"></td>
+                            <td><button><input type="submit" values="{{$histoire->id}}" name="histoire_id">test</button></td>
                             <!-- Ajoutez d'autres colonnes au besoin -->
                         </tr>
                     @endforeach

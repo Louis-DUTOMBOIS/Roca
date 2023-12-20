@@ -18,5 +18,6 @@ class HistoireControllers{
         }
 
         return view('welcome', ['histoiresParGenre' => $histoiresParGenre, 'genres' => $genres]);
+
     }
 }
