@@ -93,6 +93,13 @@
                                 <td>{{ $histoire->pitch }}</td>
                                 <td><img src="{{$histoire->photo}}" alt="Image calculée"></td>
                                 <!-- Ajoutez d'autres colonnes au besoin -->
+                                <td>
+                                    <form method="GET" action="{{ route('histoireDetail') }}">
+                                        @csrf
+                                        <input type="hidden" name="histoire_id" value="{{ $histoire->id }}">
+                                        <button type="submit">Détails histoire</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
+
 class HistoireController extends Controller
 {
 
@@ -64,6 +65,7 @@ class HistoireController extends Controller
     }
 
 
+
     /**
      * Store a newly created resource in storage.
      */
@@ -112,9 +114,8 @@ class HistoireController extends Controller
         // Récupérer la scène en utilisant l'ID
         $histoire = Histoire::find($histoireId);
 
-        $lecturesTerminees = $histoire->terminees()->where('histoire_id', $histoireId)->sum('nombre');
 
-        return view('histoires/histoire', ['histoire' => $histoire, 'lecturesTerminees' => $lecturesTerminees]);
+        return view('histoires/histoire', ['histoire' => $histoire]);
     }
 
 }
