@@ -13,6 +13,7 @@
     <a href="{{route('index')}}">Accueil</a>
     <a href="{{route('test-vite')}}">Test Vite</a>
     <a href="#">Contact</a>
+    <a href="{{route('equipe')}}">Equipe</a>
 
 @auth
         {{Auth::user()->name}}
