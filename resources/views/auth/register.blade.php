@@ -1,7 +1,10 @@
 @extends("templates.app")
 
+@section('css')
 
-@vite(['resources/css/register.css'])
+@vite('resources/css/register.css')
+
+@endnsection
 
 @section('content')
 
