@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\EquipeController;
 
 use App\Http\Controllers\HistoireController;
@@ -19,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/', function(){
+    return view('welcome');
+})->name('index');
 
 Route::get('/contact', function () {
     return view('contact');
@@ -61,3 +66,5 @@ Route::get('/', [HistoireControllers::class, 'histoire'])->name('index');
 Route::get('/accueil/filtered', [HistoireControllers::class, 'filteredGenre'])->name('histoire.filtered');
 
 
+
+Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');

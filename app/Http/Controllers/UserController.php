@@ -46,5 +46,14 @@ class UserController extends Controller
             'searchTerm' => $searchTerm,'histoiresParGenre'=>$histoiresParGenre]);
     }
 
+    public function show($id)
+    {
+        $user = User::find($id);
 
+        if (!$user) {
+            abort(404);
+        }
+
+        return view('show', ['user' => $user]);
+    }
 }
