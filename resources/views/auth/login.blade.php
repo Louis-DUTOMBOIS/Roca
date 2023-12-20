@@ -9,9 +9,9 @@
 @section('content')
 
     <div class="flex-login">
-        <img src="images/imgconnect.png" class="bloc_rouge" alt=""> 
+        <img src="images/imgconnect.png" class="bloc_rouge scroll hidden" alt=""> 
         
-        <div>
+        <div class="scroll hidden transitiondelay">
             <h1 class="h1login">⭐️ Enfin, ça faisait longtemps !</h1>
             <p>Rejoignez la plus grande app de stockage de photos de l’IUT de Lens</p>
             

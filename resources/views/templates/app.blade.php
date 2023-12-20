@@ -32,6 +32,16 @@
 <main>
     @yield("content")
 </main>
-<footer>IUT de Lens</footer>
+
+<footer class="scroll hidden transitiondelay">
+    <div class="footer-img">
+        <img class="logo-footer" src="images/logosite.png" alt="">
+    </div>
+    <div class="lien-footer">
+        <a href="#">A Propos</a>
+        <a href="#">Mentions Légales</a>
+        <a href="{{route('equipe')}}">Équipe projet</a>
+    </div>
+</footer>
 </body>
 </html>
