@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,3 +35,8 @@ Route::get('/profil', function () {
 
 Route::GET('/personne/show', [ProfilController::class, 'show'])->name('personne.show');
 Route::post('/profile/upload', [ProfilController::class, 'upload'])->name('profile.upload');
+
+
+//Route scène filtré
+
+Route::get('/welcome/filtered', [UserController::class, 'filtered'])->name('scene.filtered');
