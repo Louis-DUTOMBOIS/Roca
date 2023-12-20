@@ -58,5 +58,6 @@ Route::get('/welcome/filtered', [UserController::class, 'filtered'])->name('scen
 
 Route::get('/accueil', [HistoireControllers::class, 'histoire'])->name('histoire');
 Route::get('/', [HistoireControllers::class, 'histoire'])->name('index');
+Route::get('/accueil/filtered', [HistoireControllers::class, 'filteredGenre'])->name('histoire.filtered');
 
 
