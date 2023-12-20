@@ -23,7 +23,7 @@
                 </fieldset>
                 <fieldset>
                     <legend>Mot de passe :</legend>
-                    <input type="password" name="password" required placeholder="password" /><br />
+                    <input type="password" name="password" required placeholder="Mot de passe" /><br />
                 </fieldset>
                 <!-- Remember me<input type="checkbox" name="remember"   /><br /> -->
                 <input type="submit" value="Se Connecter" class="submitlogin"/><br />
