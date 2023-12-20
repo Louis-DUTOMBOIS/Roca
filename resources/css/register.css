@@ -23,7 +23,8 @@
 }
 
 .submitlogin:hover{
-    background-color: #4e62ff;
+    background-color: #3631CC;
+    color: #889CF7;
     transition: .3s;
     cursor: pointer;
 }
