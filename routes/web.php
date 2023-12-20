@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HistoireController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,3 +42,6 @@ Route::get('/profil', function () {
 
 Route::GET('/personne/show', [ProfilController::class, 'show'])->name('personne.show');
 Route::post('/profile/upload', [ProfilController::class, 'upload'])->name('profile.upload');
+
+Route::GET('/histoire/create', [HistoireController::class, 'index'])->name('histoire.index');
+Route::post('/histoire/create', [HistoireController::class, 'create'])->name('histoire.create');
