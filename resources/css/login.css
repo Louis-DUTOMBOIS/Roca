@@ -88,3 +88,15 @@ fieldset{
     margin: 3rem 0;
 }
 
+@media screen and (max-width: 800px) {
+    .bloc_rouge{
+        display: none;
+    }
+    .flex-login{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .flex-login div h1{
+        font-size: 2rem;
+    }
+}
