@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EquipeController;
 
+use App\Http\Controllers\HistoireController;
 use App\Http\Controllers\HistoireControllers;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\UserController;

@@ -52,7 +52,8 @@
                         <tr>
                             <td>{{ $histoire->titre }}</td>
                             <td>{{ $histoire->pitch }}</td>
-                            <td>{{ $histoire->photo }}</td>
+                            <td><img src="{{$histoire['photo']}}" alt="Image calculée"></td>
+
                             <!-- Ajoutez d'autres colonnes au besoin -->
                         </tr>
                     @endforeach
