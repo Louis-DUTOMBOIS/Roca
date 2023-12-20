@@ -12,7 +12,7 @@
     <h2>{{ $histoire->titre }}</h2>
     <p>Description : {{ $histoire->pitch }}</p>
 
-    <img src="{{$histoire['photo']}}" alt="Image calculée">
+    <img src="{{$histoire->photo}}" alt="Image calculée">
 
     <p>Nombre de lectures total terminé : {{ $histoire->terminees->sum('pivot.nombre') }}</p>
 

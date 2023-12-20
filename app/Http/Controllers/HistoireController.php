@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Genre;
 use App\Models\Histoire;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 
 class HistoireController extends Controller
 {
@@ -36,27 +34,10 @@ class HistoireController extends Controller
         $histoire = new Histoire();
         $histoire->titre = $request->input('Titre');
         $histoire->pitch = $request->input('Pitch');
-
-        if ($request->hasFile('document') && $request->file('document')->isValid()) {
-            $file = $request->file('document');
-        } else {
-            $msg = "Aucun fichier téléchargé";
-            return redirect()->route('index');
-        }
-        $nom = 'image';
-        $now = time();
-        $nom = sprintf("%s_%d.%s", $nom, $now, $file->extension());
-
-        $file->storeAs('images', $nom);
-        if (isset($tache->photo)) {
-            Log::info("Image supprimée : ". $tache->photo);
-            Storage::delete($tache->photo);
-        }
-        $histoire->photo = 'images/'.$nom;
-
+        $histoire->photo = $request->input('document');
         $histoire->active = false;
-        $histoire->user_id = auth()->id();
         $histoire->genre_id = $request->input('genre') ;
+        $histoire->user_id = auth()->id();
 
         $histoire->save();
 
@@ -112,9 +93,8 @@ class HistoireController extends Controller
         // Récupérer la scène en utilisant l'ID
         $histoire = Histoire::find($histoireId);
 
-        $lecturesTerminees = $histoire->terminees()->where('histoire_id', $histoireId)->sum('nombre');
 
-        return view('histoires/histoire', ['histoire' => $histoire, 'lecturesTerminees' => $lecturesTerminees]);
+        return view('histoires/histoire', ['histoire' => $histoire]);
     }
 
 }
