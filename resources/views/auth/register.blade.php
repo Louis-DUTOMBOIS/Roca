@@ -19,7 +19,7 @@
                     @csrf
                     <fieldset>
                         <legend>Nom :</legend>
-                        <input type="text" name="name" required placeholder="Name" /><br />
+                        <input type="text" name="name" required placeholder="Nom" /><br />
                     </fieldset>
                     <fieldset>
                         <legend>Email :</legend>
@@ -27,11 +27,11 @@
                     </fieldset>
                     <fieldset>
                         <legend>Mot de passe :</legend>
-                        <input type="password" name="password" required placeholder="password" /><br />
+                        <input type="password" name="password" required placeholder="Mot de passe" /><br />
                     </fieldset>
                     <fieldset>
                         <legend>Confirmer mot de passe :</legend>
-                        <input type="password" name="password_confirmation" required placeholder="password" /><br />
+                        <input type="password" name="password_confirmation" required placeholder="Confirmer mot de passe " /><br />
                     </fieldset>
 
                     <input type="submit" value="S'inscrire" class="submitlogin"/><br />
