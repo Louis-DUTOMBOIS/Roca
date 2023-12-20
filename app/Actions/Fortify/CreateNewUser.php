@@ -34,6 +34,7 @@ class CreateNewUser implements CreatesNewUsers
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
+            'avatar_lien' => 'https://www.xat.com/web_gear/chat/av/17.png',
             'password' => Hash::make($input['password']),
         ]);
     }
