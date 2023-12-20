@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,11 @@ Route::get('/test-vite', function () {
     return view('test-vite');
 })->name("test-vite");
 
+//Route pour les informations personnelles des utilisateurs
+
+Route::get('/profil', function () {
+    return view('personne');
+})->middleware(['auth'])->name('profil');
+
+Route::GET('/personne/show', [ProfilController::class, 'show'])->name('personne.show');
+Route::post('/profile/upload', [ProfilController::class, 'upload'])->name('profile.upload');
