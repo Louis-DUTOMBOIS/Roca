@@ -4,7 +4,7 @@
 
 @vite('resources/css/login.css')
 
-@endnsection
+@endsection
 
 @section('content')
 
