@@ -157,3 +157,5 @@ php artisan db:seed
 À partir de là, votre site doit être visible avec l'url : `http://marathon/~but23_groupeXX` avec `XX` votre numéro
 de groupe.
 
+
+cpucpu

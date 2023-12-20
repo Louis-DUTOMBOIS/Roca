@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\EquipeController;
-use App\Http\Controllers\HistoireController;
+
+use App\Http\Controllers\HistoireControllers;
+use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-})->name("index");
 
 Route::get('/contact', function () {
     return view('contact');
@@ -37,3 +35,15 @@ Route::get('/test-vite', function () {
     return view('test-vite');
 })->name("test-vite");
 
+//Route pour les informations personnelles des utilisateurs
+
+Route::get('/profil', function () {
+    return view('personne');
+})->middleware(['auth'])->name('profil');
+
+Route::GET('/personne/show', [ProfilController::class, 'show'])->name('personne.show');
+Route::post('/profile/upload', [ProfilController::class, 'upload'])->name('profile.upload');
+
+
+Route::get('/accueil', [HistoireControllers::class, 'histoire'])->name('histoire');
+Route::get('/', [HistoireControllers::class, 'histoire'])->name('index');
