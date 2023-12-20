@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\EquipeController;
+
+use App\Http\Controllers\HistoireControllers;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -15,13 +18,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name("index");
-
 Route::get('/contact', function () {
     return view('contact');
 })->name("contact");
+
+Route::get('/equipe', function () {
+    return view('contact');
+})->name("contact");
+
+// Route pour l'index de l'équipe
+Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe');
+
+// Route pour l'index de l'équipe
+Route::get('/histoire', [HistoireController::class, 'histoire'])->name('histoire');
 
 Route::get('/test-vite', function () {
     return view('test-vite');
@@ -37,6 +46,11 @@ Route::GET('/personne/show', [ProfilController::class, 'show'])->name('personne.
 Route::post('/profile/upload', [ProfilController::class, 'upload'])->name('profile.upload');
 
 
+
 //Route scène filtré
 
 Route::get('/welcome/filtered', [UserController::class, 'filtered'])->name('scene.filtered');
+
+Route::get('/accueil', [HistoireControllers::class, 'histoire'])->name('histoire');
+Route::get('/', [HistoireControllers::class, 'histoire'])->name('index');
+
