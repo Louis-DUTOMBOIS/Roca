@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             DB::table('users')->insert([
             'name' => "user$i",
             'email' => "user$i@gmail.com",
+            'avatar_lien' => "link",
             'password' => $azerty,
         ]);
 
