@@ -22,6 +22,13 @@ Route::get('/contact', function () {
     return view('contact');
 })->name("contact");
 
+Route::get('/equipe', function () {
+    return view('contact');
+})->name("contact");
+
+// Route pour l'index de l'équipe
+Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe');
+
 Route::get('/test-vite', function () {
     return view('test-vite');
 })->name("test-vite");
