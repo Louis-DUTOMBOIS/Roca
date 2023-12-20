@@ -1,8 +1,5 @@
 <?php
 
-
-use App\Http\Controllers\HistoireController;
-
 use App\Http\Controllers\EquipeController;
 
 use App\Http\Controllers\HistoireController;
