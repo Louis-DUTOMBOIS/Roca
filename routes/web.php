@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EquipeController;
+use App\Http\Controllers\HistoireController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,9 @@ Route::get('/equipe', function () {
 
 // Route pour l'index de l'équipe
 Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe');
+
+// Route pour l'index de l'équipe
+Route::get('/histoire', [HistoireController::class, 'histoire'])->name('histoire');
 
 Route::get('/test-vite', function () {
     return view('test-vite');
