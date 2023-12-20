@@ -4,7 +4,7 @@
 
 @vite('resources/css/register.css')
 
-@endnsection
+@endsection
 
 @section('content')
 
