@@ -1,5 +1,9 @@
 @extends("templates.app")
 
+@section('css')
+  
+@append
+
 @section('content')
 <form action="{{route("register")}}" method="post">
     @csrf

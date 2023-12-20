@@ -1,7 +1,12 @@
 @extends("templates.app")
 
+
+@section('css')
+  @vite([ 'resources/css/welcome.css' ])
+@append
+
 @section('content')
-    <div style="display: flex;align-items: center; justify-content: center">
+    <div>
         <div>
             @if(session('type') && session('type') === 'warning')
                 <p>{{ session('msg') }}</p>

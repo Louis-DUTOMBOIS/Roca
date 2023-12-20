@@ -1,14 +1,10 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profil</title>
-</head>
-<body>
-<div>
+@extends('templates.app')
+
+@section('css')
+  
+@append
+
+@content
     <form action="{{route('histoire.create')}}" method="post">
         @csrf
         <div class="form-header">
@@ -41,6 +37,6 @@
             <button class="form-button" type="submit">Enregistrement</button>
         </div>
     </form>
-</div>
-</body>
-</html>
+
+
+    @endsection
