@@ -5,7 +5,7 @@
     <title>{{isset($title) ? $title : "Page en cours"}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    @vite(["resources/css/normalize.css", 'resources/css/app.css', 'resources/js/app.js'])
+    @vite(["resources/css/normalize.css", 'resources/css/app.css', 'resources/js/app.js', 'resources/css/login.css', 'resources/css/register.css',])
 </head>
 <body>
 <header>Ma super application</header>

@@ -1,8 +1,6 @@
 <?php
 
 
-
-
 use App\Http\Controllers\EquipeController;
 
 use App\Http\Controllers\HistoireController;
@@ -37,7 +35,11 @@ Route::get('/equipe', function () {
 Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe');
 
 // Route pour l'index de l'équipe
+<<<<<<< HEAD
 Route::get('/histoire/{id}', [HistoireController::class, 'histoire'])->where('id', '[0-9]+')->name('histoire.histoire');
+=======
+Route::get('/histoire', [HistoireController::class, 'histoire'])->name('histoireDetail');
+>>>>>>> 775c9277a5e2fc0bebacd756e62ffb062ec46ab4
 
 Route::get('/test-vite', function () {
     return view('test-vite');
@@ -63,6 +65,7 @@ Route::get('/welcome/filtered', [UserController::class, 'filtered'])->name('scen
 
 
 Route::get('/', [HistoireControllers::class, 'histoire'])->name('index');
+Route::get('/accueil/filtered', [HistoireControllers::class, 'filteredGenre'])->name('histoire.filtered');
 
 
 
