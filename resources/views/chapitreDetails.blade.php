@@ -4,13 +4,7 @@
 
     @section('content')
 
-    <!DOCTYPE html>
-    <html>
 
-    <head>
-        <title>Chapitre - {{ $chapitre->titre }}</title>
-        <!-- Inclure vos styles CSS ou liens nécessaires -->
-    </head>
 
     <body>
 
@@ -73,7 +67,5 @@
     </div>
 
 
-    </body>
 
-    </html>
 @endsection
