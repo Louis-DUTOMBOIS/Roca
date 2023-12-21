@@ -101,6 +101,7 @@ body {
     color: #64748B;
 }
 
+
 .welcomeLeftBanner button {
     display: flex;
     padding: var(--sizes-button-input-nav-large-padding-v, 12px) var(--sizes-button-input-nav-large-padding-h, 24px);
@@ -116,7 +117,13 @@ body {
     color: #ffffff;
 
     width: fit-content;
+    cursor: pointer;
 
+}
+
+.welcomeLeftBanner button:hover {
+    background-color: var(--Button-Light-Hover-Background, rgba(255, 255, 255, 0.50));
+    border: 1px solid var(--Button-Light-Hover-Border, rgba(255, 255, 255, 0.00));
 }
 
 
