@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>{{isset($title) ? $title : "Page en cours"}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Albert Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Albert Sans:900">
 
     @vite(["resources/css/normalize.css", 'resources/css/app.css', 'resources/js/app.js' ])
 
@@ -23,9 +25,12 @@
   <path fill-rule="evenodd" clip-rule="evenodd" d="M126.44 24.234C126.44 32.397 119.562 39.0145 111.078 39.0145C102.594 39.0145 95.7165 32.397 95.7165 24.234C95.7165 16.0709 102.594 9.45341 111.078 9.45341C119.562 9.45341 126.44 16.0709 126.44 24.234ZM111.078 31.2186C115.088 31.2186 118.338 28.0914 118.338 24.234C118.338 20.3765 115.088 17.2494 111.078 17.2494C107.069 17.2494 103.819 20.3765 103.819 24.234C103.819 28.0914 107.069 31.2186 111.078 31.2186Z" fill="#F1F5F9"/>
   <path d="M118.351 24.8057H126.44V39.5863H118.351V24.8057Z" fill="#F1F5F9"/>
 </svg></a>
-    <a href="{{route('test-vite')}}">Test Vite</a>
-    <a href="#">Contact</a>
-    <a href="{{route('equipe')}}">Equipe</a>
+
+
+
+<div class="rightNav">
+
+
 
 @auth
         {{Auth::user()->name}}
@@ -35,15 +40,22 @@
         <form id="logout" action="{{route("logout")}}" method="post">
             @csrf
         </form>
+        <button>
+            <a href="{{route('profil')}}" id="informations">Profil</a>
+        </button>
     @else
-        <a href="{{route("login")}}">Login</a>
-        <a href="{{route("register")}}">Register</a>
+        <a href="{{route("login")}}" class="navCTA1">Se connecter</a>
+        <a href="{{route("register")}}" class="navCTA2">S'inscrire</a>
     @endauth
+
+    </div>
 </nav>
 
 <main>
     @yield("content")
 </main>
-<footer>IUT de Lens</footer>
+<footer>    <a href="{{route('equipe')}}">Equipe</a>
+
+<a href="#">A propos</a></footer>
 </body>
 </html>

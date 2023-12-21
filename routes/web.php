@@ -28,6 +28,8 @@ Route::get('/equipe', function () {
     return view('contact');
 })->name("contact");
 
+// faire route a propos
+
 // Route pour l'index de l'équipe
 Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe');
 
