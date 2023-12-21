@@ -116,13 +116,18 @@
         </div>
     </div>
         
+
+
+
+
+
     <script>
+
         const icon = document.querySelector(".accountIcon")
         const modal = document.querySelector(".modal")
         const modalImg = document.querySelector(".modalImg")
         const modalTxt = document.querySelector(".modalTxt")
         const closeM = document.querySelector(".closeM")
-    
     
     
         icon.addEventListener("click", (e) => {
@@ -172,6 +177,8 @@
             reader.readAsDataURL(file);
         }
         }
+
     </script>
+    
         @endauth
 @endsection

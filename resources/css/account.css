@@ -26,7 +26,6 @@
 
 #accountContainer h1{
     color: #FFF;
-
     text-align: center;
     font-family: Albert Sans;
     font-size: 30px;
@@ -136,6 +135,7 @@
 
 .maListe {
     color: white;
+    gap: 24px;
 }
 
 .maListeCards {
@@ -283,4 +283,8 @@
     border: 1px solid  #6E7FFF;
     background: #6E7FFF;
     margin: auto;
+}
+
+h1 {
+    margin: 2rem 0;
 }
