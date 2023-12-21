@@ -19,10 +19,9 @@ main {
     width: 1200px;
     /* min-height: 80vh; */
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     justify-content: center;
-
 }
 
 footer {

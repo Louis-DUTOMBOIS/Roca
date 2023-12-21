@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Albert Sans">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Albert Sans:900">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     @vite(["resources/css/normalize.css", 'resources/css/app.css', 'resources/js/app.js' ])
 
