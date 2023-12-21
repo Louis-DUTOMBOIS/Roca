@@ -59,6 +59,9 @@
 
     <p><strong>Autres informations:</strong> {{$equipe['autres']}}</p>
 </div>
-<footer>IUT de Lens</footer>
+<footer>
+    <img src="images/logosite.png" alt="">
+    IUT de 
+</footer>
 </body>
 </html>
