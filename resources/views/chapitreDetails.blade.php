@@ -6,7 +6,7 @@
 
 
 
-    <body>
+
 
     <div class="ambi-light">
         @if ($chapitre->media)
