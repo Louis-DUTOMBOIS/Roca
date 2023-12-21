@@ -41,9 +41,10 @@ class UserController extends Controller
                 'searchTerm' => $searchTerm,'histoiresParGenre'=>$histoiresParGenre])
                 ->with('moreThanTenResults', true);
         }
+        $story = Histoire::all();
 
         return view('welcome', ['users' => $users, 'histoires' => $histoires, 'genres' => $genres,
-            'searchTerm' => $searchTerm,'histoiresParGenre'=>$histoiresParGenre]);
+            'searchTerm' => $searchTerm,'histoiresParGenre'=>$histoiresParGenre, 'story'=>$story]);
     }
 
     public function show($id)

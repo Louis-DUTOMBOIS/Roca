@@ -1,8 +1,11 @@
-@extends("templates.app")
+@extends('templates.app')
+
+@section('css')
+  
+@append
 
 @section('content')
-<div>
-    <form action="{{route('histoire.create')}}" method="post" enctype="multipart/form-data" >
+    <form action="{{route('histoire.create')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-header">
             <h3>Création de votre histoire</h3>
@@ -34,5 +37,4 @@
             <input type="submit" value="Enregistrement" name="submit">
         </div>
     </form>
-</div>
 @endsection
