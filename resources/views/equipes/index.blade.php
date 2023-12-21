@@ -8,17 +8,13 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Redacted+Script:wght@400">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans&display=swap" rel="stylesheet">
-
     @vite(['resources/css/equipe.css'])
     <title>{{$titre ?? "Application Laravel"}}</title>
 </head>
 <body>
 <header>Ma super application</header>
 <nav>
-    <a href="{{route('index')}}"><img src="logo.svg" /></a>
+    <a href="{{route('index')}}">Accueil</a>
     <a href="{{route('test-vite')}}">Test Vite</a>
     <a href="{{route('contact')}}">Contact</a>
     <a href="{{route('equipe')}}">Equipe</a>
@@ -59,6 +55,6 @@
 
     <p><strong>Autres informations:</strong> {{$equipe['autres']}}</p>
 </div>
-<footer>IUT de Lens</footer>
-</body>
-</html>
+
+
+@endsection
