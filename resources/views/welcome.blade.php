@@ -73,7 +73,18 @@
     </div>
 </div>
 
-
+<div>
+        <h2>Cinq histoires aléatoires</h2>
+        <ul>
+            @foreach($story->random(5) as $histoire)
+                <form method="GET" action="{{ route('histoireDetail') }}">
+                    @csrf
+                    <input type="hidden" name="histoire_id" value="{{ $histoire->id }}">
+                    <button type="submit"><li>{{ $histoire->titre }}</li></button>
+                </form>
+            @endforeach
+        </ul>
+    </div>
 
 
 <div>
