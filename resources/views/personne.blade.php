@@ -4,8 +4,7 @@
   
 @append
 
-
-@content
+@section('content')
 @auth
     <h1>Voici vos informations personnelles</h1>
 

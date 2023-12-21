@@ -131,5 +131,4 @@
     @endif
     @endforeach
 </div>
-</div>
 @endsection

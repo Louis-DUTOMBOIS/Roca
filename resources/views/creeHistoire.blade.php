@@ -4,8 +4,8 @@
   
 @append
 
-@content
-    <form action="{{route('histoire.create')}}" method="post">
+@section('content')
+    <form action="{{route('histoire.create')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-header">
             <h3>Création de votre histoire</h3>
@@ -37,6 +37,4 @@
             <input type="submit" value="Enregistrement" name="submit">
         </div>
     </form>
-</div>
-</body>
-</html>
+@endsection
