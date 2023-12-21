@@ -193,7 +193,7 @@ input { /* 1 */
 
 button,
 select { /* 1 */
-    text-transform: none;
+    /* text-transform: none; */
 }
 
 /**
@@ -205,6 +205,8 @@ button,
 [type="reset"],
 [type="submit"] {
     -webkit-appearance: button;
+    width: 1;
+    width: f;
 }
 
 /**
