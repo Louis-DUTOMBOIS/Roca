@@ -1,0 +1,45 @@
+.equipe-all{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    list-style-type: none;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 0;
+}
+
+.equipe-all li{
+    list-style-type: none;
+}
+
+.equipe-all li p{
+    color: #CBD5E1;
+    font-family: Albert Sans;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.equipe-all li img{
+    width: 213.95px;
+    height: 291.75px;
+}
+
+.maxwidth-equipe{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.h2membre-equipe{
+    color: #FFF;
+    font-family: Albert Sans;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 111.111% */
+}
+
+.picture-team{
+    width: 1200px;
+    height: 927px;
+    flex-shrink: 0;
+}
