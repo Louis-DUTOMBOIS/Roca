@@ -8,9 +8,9 @@
 <div class="detail">
     <h1>Détails de la scène</h1>
 
-@section('css')
-  @vite('resources/css/detailhistoire.css')
-@append
+// @section('css')
+//   @vite('resources/css/detailhistoire.css')
+// @append
 
 @section('content')
     
