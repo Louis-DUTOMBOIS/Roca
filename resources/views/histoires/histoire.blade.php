@@ -4,6 +4,14 @@
   
 @append
 
+@content
+<div class="detail">
+    <h1>Détails de la scène</h1>
+
+@section('css')
+  
+@append
+
 @section('content')
     @vite('resources/css/detailhistoire.css')
 
