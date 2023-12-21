@@ -31,7 +31,7 @@
                 
                 <div class="nb-chapitres">
                     <h3>{{ $histoire->terminees->sum('pivot.nombre') }}</h3>
-                    <p>Nombre de lecteurs</p>
+                    <p>Nombre de lectures</p>
                 </div>
                 
                 <div class="nb-chapitres">
