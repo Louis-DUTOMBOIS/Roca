@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>404</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends("templates.app")
 
-    @vite(["resources/css/normalize.css", 'resources/css/app.css', 'resources/js/app.js', 'resources/css/404.css'])
-</head>
-<body>
-<main>
-    <div style="font-size: larger;">Error 404 - SVP, Stylisez moi !!</div>
-</main>
+@section('css')
+@vite("resources/css/404.css")
+  
+@append
 
-</body>
-</html>
+@section('content')
+    <div class="wrapper_img"><img src="/images/rickroll.gif" alt=""></div>
+    <div class="wrapper_404" style="font-size: larger;"><h1>404</h1>
+    <a class="btn primary" href="/">Revenir à l'accueil<img src="/images/home.svg" alt=""></a>
+    </div>
+@endsection
