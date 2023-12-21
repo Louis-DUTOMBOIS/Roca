@@ -1,9 +1,6 @@
 @extends('templates.app')
 
 
-@section('css')
-    @vite(['resources/css/chapitreDetails.css'])
-    @append
 
     @section('content')
 
