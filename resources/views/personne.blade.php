@@ -1,8 +1,5 @@
 @extends('templates.app')
 
-@section('css')
-    @vite("resources/css/account.css")
-@endsection
 
 
     @section("content")
