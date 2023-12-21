@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChapitreController;
 use App\Http\Controllers\EquipeController;
 
 use App\Http\Controllers\HistoireController;
@@ -73,3 +74,7 @@ Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
 Route::post('/start-reading', [HistoireController::class, 'startReading'])->name('startReading');
 Route::get('/chapitres/{chapitre_id}', [HistoireController::class, 'showChapitreDetails'])->name('chapitreDetails');
 Route::post('/make-choice', [HistoireController::class, 'makeChoice'])->name('makeChoice');
+
+//chapitre
+Route::post('/chapitre', [ChapitreController::class, 'chapitre'])->name('chapitre');
+Route::get('/afficher-chapitres/{histoire_id}', [ChapitreController::class, 'afficherChapitres'])->name('afficherChapitres');
