@@ -4,7 +4,7 @@
   
 @append
 
-@content
+@section('content')
 <div class="detail">
     <h1>Détails de la scène</h1>
 
@@ -50,5 +50,4 @@
     </ul>
 
 </div>
-
 @endsection

@@ -67,7 +67,7 @@
 
     <div class="welcomeRightBanner">
 
-        <img src="https://images.unsplash.com/photo-1703027816278-2573b76e62f9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+        <img src="images/book_cover 1.png">
 
         <div class="buttonBottomBanner">
             <button type="submit" class="ctaBanner1"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
@@ -80,7 +80,18 @@
     </div>
 </div>
 
-
+<div>
+        <h2>Cinq histoires aléatoires</h2>
+        <ul>
+            @foreach($story->random(5) as $histoire)
+                <form method="GET" action="{{ route('histoireDetail') }}">
+                    @csrf
+                    <input type="hidden" name="histoire_id" value="{{ $histoire->id }}">
+                    <button type="submit"><li>{{ $histoire->titre }}</li></button>
+                </form>
+            @endforeach
+        </ul>
+    </div>
 
 
 <div>
@@ -126,6 +137,5 @@
     <p>Aucune histoire pour ce genre.</p>
     @endif
     @endforeach
-</div>
 </div>
 @endsection
