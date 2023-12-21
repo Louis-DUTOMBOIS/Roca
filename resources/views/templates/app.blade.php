@@ -12,6 +12,7 @@
 
     @yield("css")
 
+    <link rel="stylesheet" href="resources/css/detailhistoire.css">
 
 </head>
 <body>
