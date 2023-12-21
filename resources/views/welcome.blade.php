@@ -49,12 +49,16 @@
             </thead>
             <tbody>
                 @foreach ($histoires as $histoire)
+
                 <tr>
-                    <td>{{ $histoire->titre }}</td>
+
+                    <td><a href="{{ route('histoireDetail', ['histoire_id' => $histoire->id]) }}">{{ $histoire->titre }}</a></td>
+
                     <td>{{ $histoire->pitch }}</td>
                     <td><img src="{{ $histoire->photo }}" alt="Image calculée"></td>
 
                 </tr>
+
                 @endforeach
             </tbody>
         </table>
