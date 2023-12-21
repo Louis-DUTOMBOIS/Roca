@@ -21,6 +21,7 @@ class HistoireController extends Controller
     public function index()
     {
         $genres = Genre::all();
+        $chapitres = Chapitre::all();
 
         return view('creeHistoire', ['genres' => $genres]);
     }

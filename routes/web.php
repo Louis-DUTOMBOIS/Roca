@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChapitreController;
 use App\Http\Controllers\EquipeController;
 
 use App\Http\Controllers\HistoireController;
@@ -78,3 +79,6 @@ Route::post('/make-choice', [HistoireController::class, 'makeChoice'])->name('ma
 
 //route pour ajouter un commentaire
 Route::post('/ajouter-avis', [HistoireController::class, 'ajouterAvis'])->name('ajouterAvis');
+
+//formulaire lier chapitre
+Route::post('/linkChapters',[ChapitreController::class, 'lierChapitres'])->name('linkChapters');
