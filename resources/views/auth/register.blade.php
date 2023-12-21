@@ -8,9 +8,9 @@
 @section('content')
 
     <div class="flex-register">
-        <img src="images/coverInscription.png" class="bloc_rouge" alt=""> 
+        <img src="images/imgconnect.png" class="bloc_rouge scroll hidden" alt=""> 
 
-            <div>
+            <div class="scroll hidden transitiondelay">
                 <h1 class="h1login">👋 Ça fait toujours plaisir de t’accueillir !</h1>
                 <p>Rejoignez la plus grande app de stockage de photos de l’IUT de Lens</p>
                 

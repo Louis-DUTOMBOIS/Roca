@@ -13,6 +13,10 @@
     @yield("css")
 
 
+<<<<<<< HEAD
+    @vite(["resources/css/normalize.css", 'resources/css/app.css', 'resources/js/app.js', 'resources/css/login.css', 'resources/css/register.css', 'resources/css/welcome.css'])
+=======
+>>>>>>> 65d69536e7f8f9d5efcf544c89e72e6cb23aed53
 </head>
 <body>
 
