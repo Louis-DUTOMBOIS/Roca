@@ -30,6 +30,7 @@
     @endif
 
 
+
     @if ($chapitre->question)
         <p>Question : {{ $chapitre->question }}</p>
         <!-- Affichage des choix sous forme de boutons -->
