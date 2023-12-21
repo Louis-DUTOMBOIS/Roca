@@ -20,7 +20,7 @@
         <h1>{{ Auth::user()->name }}</h1>
         <p class="userMail">{{ Auth::user()->email }}</p>
 
-        {{-- <a href="{{route("logout")}}"
+        <a href="{{route("logout")}}"
            onclick="document.getElementById('logout').submit(); return false;">Logout</a>
         <form id="logout" action="{{route("logout")}}" method="post">
             @csrf
