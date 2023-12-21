@@ -58,12 +58,19 @@
                             @csrf
                             <input type="hidden" name="chapitre_id" value="{{ $chapitre->id }}">
                             <input type="hidden" name="reponse" value="{{ $suivant->id }}">
-                            <button type="submit">{{ $suivant->texte }}</button>
+                            <button type="submit" class="submit">{{ $suivant->texte }}</button>
                         </form>
                     @endforeach
                 </div>
             @else
+            <p>L'histoire est terminée</p>
+            <div class="container-cta-end">
+                <a class="submit submit-primary" href='{{ route('index') }}'>Retourner à l'accueil</a>
+            </div>
 
+
+            
+{{-- page de fin, cta recommencer, cta aller acceuil --}} 
 
         @endif
         </div>
