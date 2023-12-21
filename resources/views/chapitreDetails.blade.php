@@ -48,6 +48,14 @@
     @else
         <p>Fin de l'histoire</p>
     @endif
+    @auth
+        <form method="POST" action="{{ route('ajouterAvis') }}">
+            @csrf
+            <input type="hidden" name="histoire_id" value="{{ $chapitre->histoire->id }}">
+            <textarea name="contenu" placeholder="Votre commentaire ici"></textarea>
+            <button type="submit">Ajouter un commentaire</button>
+        </form>
+    @endauth
     <h3>Avis sur cette histoire :</h3>
     <ul>
         @foreach($chapitre->histoire->avis as $avis)

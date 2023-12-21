@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Avis;
 use App\Models\Chapitre;
 use App\Models\Genre;
 use App\Models\Histoire;
@@ -159,6 +160,23 @@ class HistoireController extends Controller
             // Gestion de la fin de l'histoire
             return view('finHistoire');
         }
+    }
+
+
+    public function ajouterAvis(Request $request)
+    {
+        $request->validate([
+            'histoire_id' => 'required|exists:histoires,id',
+            'contenu' => 'required|string|max:255',
+        ]);
+
+        $avis = new Avis();
+        $avis->contenu = $request->input('contenu');
+        $avis->user_id = auth()->id();
+        $avis->histoire_id = $request->input('histoire_id');
+        $avis->save();
+
+        return redirect()->back()->with('success', 'Votre avis a été ajouté avec succès!');
     }
 
 
