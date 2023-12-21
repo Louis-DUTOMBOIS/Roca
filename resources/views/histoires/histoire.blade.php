@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Détails de la scène</title>
-    @vite(['resources/css/accueil.css', 'resources/css/sceneDetails.css', 'resources/css/footer.css'])
-    <!-- Assurez-vous d'inclure tout lien vers des styles CSS, des bibliothèques ou des scripts nécessaires -->
-</head>
-<body>
+@extends('templates.app')
+
+@section('css')
+  
+@append
+
+@content
 <div class="detail">
     <h1>Détails de la scène</h1>
 
@@ -52,5 +51,4 @@
 
 </div>
 
-</body>
-</html>
+@endsection
