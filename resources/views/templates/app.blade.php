@@ -12,7 +12,6 @@
 
     @yield("css")
 
-
 </head>
 <body>
 

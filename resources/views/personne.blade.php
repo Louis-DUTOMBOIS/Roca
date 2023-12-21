@@ -20,11 +20,20 @@
         <h1>{{ Auth::user()->name }}</h1>
         <p class="userMail">{{ Auth::user()->email }}</p>
 
-        {{-- <a href="{{route("logout")}}"
+        <a href="{{route("logout")}}"
            onclick="document.getElementById('logout').submit(); return false;">Logout</a>
         <form id="logout" action="{{route("logout")}}" method="post">
             @csrf
-        </form> --}}
+            <div>
+                <h2>Choix d'une photo de profil :</h2>
+            </div>
+            <div>
+                <label for="doc">Image : </label>
+                <input type="file" name="document" id="doc">
+            </div>
+            <input type="submit" value="Télécharger" name="submit">
+        </form>
+        <img src="{{ Storage::url(Auth::user()->avatar_lien) }}" alt="Image de l'utilisateur">
 
 
 

@@ -2,7 +2,7 @@
 
 
 @section('css')
-@vite([ 'resources/css/welcome.css' ])
+    @vite('resources/css/welcome.css')
 @append
 
 @section('content')
@@ -80,6 +80,57 @@
             <button type="submit" class="ctaBanner2"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
                     <path d="M3.41669 13V2.99999C3.41669 2.55797 3.59228 2.13404 3.90484 1.82148C4.2174 1.50892 4.64133 1.33333 5.08335 1.33333H14.0834V14.6667H5.08335C4.64133 14.6667 4.2174 14.4911 3.90484 14.1785C3.59228 13.8659 3.41669 13.442 3.41669 13ZM3.41669 13C3.41669 12.558 3.59228 12.134 3.90484 11.8215C4.2174 11.5089 4.64133 11.3333 5.08335 11.3333H14.0834M6.75002 6.66666H10.75M8.75002 4.66666V8.66666" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>Liste de lecture</button>
+        </div>
+        <div>
+            <h1>Liste des histoires</h1>
+            <form class="filtre" method="GET" action="{{ route('histoire.filtered') }}">
+                @csrf
+                <label for="genre">Filtrer par Genre :</label>
+                <select name="genre" id="genre">
+                    @if(isset($genres))
+                        @foreach($genres as $genre)
+                            <option value="{{ $genre->id }}">{{ $genre->label }}</option>
+                        @endforeach
+                    @else
+                        <option>Pas de Genre</option>
+                    @endif
+                </select>
+                <button type="submit">Filtrer</button>
+            </form>
+            @foreach ($histoiresParGenre as $genreLabel => $histoires)
+                <h2>{{ $genreLabel }}</h2>
+                @if (count($histoires) > 0)
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>Titre</td>
+                            <td>Pitch</td>
+                            <td>Photo</td>
+                            <!-- Ajoutez d'autres colonnes au besoin -->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($histoires as $histoire)
+                            <tr>
+                                <td>{{ $histoire->titre }}</td>
+                                <td>{{ $histoire->pitch }}</td>
+                                <td><img src="{{$histoire->photo}}" alt="Image calculée"></td>
+                                <!-- Ajoutez d'autres colonnes au besoin -->
+                                <td>
+                                    <form method="GET" action="{{ route('histoireDetail') }}">
+                                        @csrf
+                                        <input type="hidden" name="histoire_id" value="{{ $histoire->id }}">
+                                        <button type="submit">Détails histoire</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <p>Aucune histoire pour ce genre.</p>
+                @endif
+            @endforeach
         </div>
     </div>
 

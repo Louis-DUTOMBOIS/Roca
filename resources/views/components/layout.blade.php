@@ -37,6 +37,9 @@
 <main class="main-container">
     {{$slot}}
 </main>
-<footer>IUT de Lens</footer>
+<footer>
+    <img src="images/logosite.png" alt="">
+    IUT de Lens
+</footer>
 </body>
 </html>
