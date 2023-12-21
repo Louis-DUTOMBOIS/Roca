@@ -1,0 +1,82 @@
+#accountContainer {
+    background-color: rgb(7, 7, 137);
+    color: white;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#accountContainer a{
+    text-decoration: none;
+    color: white;
+}
+
+#profilPic {
+    width: 180px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.accountIcon {
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    right: -4rem;
+    top: 3rem;
+    border-radius: 8px;
+    border: 1px solid #475569;
+    background: #0F172A;
+}
+
+.modal {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    z-index: 1;
+    overflow: auto;
+    display: none;
+}
+
+
+
+.modalContent {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    width: 200px;
+}
+
+.modalImg {
+    width: 70%;
+    max-width: 1000px;
+}
+
+.modalTxt {
+    margin-top: 1rem;
+}
+
+.closeM   {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    cursor: pointer;
+}
+
+.appear {
+    display: block;
+    pointer-events: pointer;
+}
+
+
+
