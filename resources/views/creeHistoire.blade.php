@@ -1,10 +1,15 @@
-@extends("templates.app")
+@extends('templates.app')
+
+@section('css')
+
+@append
 
 @section('content')
 <div>
     @vite('resources/css/creeHistoire.css')
 
     <form action="{{route('histoire.create')}}" method="post" enctype="multipart/form-data" >
+
         @csrf
         <div class="form-header">
             <h3 class="h3-createhistoire">Commence la rédaction de ton histoire</h3>
@@ -43,5 +48,30 @@
             <input type="submit" value="Suivant" name="submit" class="creehistoire-suivant">
         </div>
     </form>
-</div>
+
+    <form method="POST" action="{{ route('linkChapters') }}">
+        @csrf
+
+        <!-- Sélection du chapitre source -->
+        <label for="chapitre_source_id">Chapitre source :</label>
+        <select name="chapitre_source_id" id="chapitre_source_id">
+            @foreach($chapitres as $chapitre)
+                <option value="{{ $chapitre->id }}">{{ $chapitre->titre }}</option>
+            @endforeach
+        </select>
+
+        <!-- Sélection du chapitre cible -->
+        <label for="chapitre_destination_id">Chapitre cible :</label>
+        <select name="chapitre_destination_id" id="chapitre_destination_id">
+            @foreach($chapitres as $chapitre)
+                <option value="{{ $chapitre->id }}">{{ $chapitre->titre }}</option>
+            @endforeach
+        </select>
+
+        <!-- Réponse à la question posée dans le chapitre source -->
+        <label for="reponse">Réponse :</label>
+        <input type="text" name="reponse" id="reponse">
+
+        <button type="submit">Lier les chapitres</button>
+    </form>
 @endsection

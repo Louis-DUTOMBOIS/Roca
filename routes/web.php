@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChapitreController;
 use App\Http\Controllers\EquipeController;
 
 use App\Http\Controllers\HistoireController;
@@ -31,6 +32,8 @@ Route::get('/contact', function () {
 Route::get('/equipe', function () {
     return view('contact');
 })->name("contact");
+
+// faire route a propos
 
 // Route pour l'index de l'équipe
 Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe');
@@ -76,3 +79,6 @@ Route::post('/make-choice', [HistoireController::class, 'makeChoice'])->name('ma
 
 //route pour ajouter un commentaire
 Route::post('/ajouter-avis', [HistoireController::class, 'ajouterAvis'])->name('ajouterAvis');
+
+//formulaire lier chapitre
+Route::post('/linkChapters',[ChapitreController::class, 'lierChapitres'])->name('linkChapters');
