@@ -32,7 +32,7 @@
         <h4>Utilisateurs :</h4>
         <ul>
             @foreach($users as $user)
-            <li>{{ $user->name }}</li>
+            <li>{{ $user->name }}</li> <button><a href="{{ route('user.show', $user->id) }}">Informations</a></button>
             @endforeach
         </ul>
         @endif
@@ -129,4 +129,74 @@
             @endforeach
         </div>
     </div>
+
+
+</div>
+
+<div class="container">
+    <h2>Cinq histoires selon vos goûts</h2>
+
+    <button class="carousel__button carousel__button--left"><</button>
+    <button class="carousel__button carousel__button--right">></button>
+    <div class="carousel">
+        <div class="filter"></div>
+        <div class="carousel__track-container">
+            <div class="carousel__track">
+            @foreach($story->random(8) as $histoire)
+                <a href="{{ route('histoireDetail', ['histoire_id' => $histoire->id]) }}" class="carousel__slide">
+                    <span>{{ $histoire->titre }}</span>
+                    <div class="tag">{{ $histoire->titre }}</div>
+                    <img src="{{$histoire->photo}}" alt="Image calculée">
+                </a>
+                
+            @endforeach
+            </div>
+        </div>
+       
+    </div>
+</div>
+<div class="wrapper_list-histoires">>
+    <h2>Liste des histoires</h2>
+    <form class="filtre" method="GET" action="{{ route('histoire.filtered') }}">
+        @csrf
+        <div>
+        <label for="genre">Filtrer par Genre :</label>
+        <select name="genre" id="genre">
+            @if(isset($genres))
+            @foreach($genres as $genre)
+            <option value="{{ $genre->id }}">{{ $genre->label }}</option>
+            @endforeach
+            @else
+            <option>Pas de Genre</option>
+            @endif
+        </select>
+        </div>
+        <button class="ctaBanner2" type="submit">Filtrer</button>
+    </form>
+    @foreach ($histoiresParGenre as $genreLabel => $histoires)
+    <div class="container">
+        <h2>{{ $genreLabel }}</h2>
+        <button class="carousel__button carousel__button--left"><</button>
+        <button class="carousel__button carousel__button--right">></button>
+        @if (count($histoires) > 0)
+        <div class="carousel">
+        <div class="filter"></div>
+            <div class="carousel__track-container">
+                <div class="carousel__track">
+                @foreach($histoires as $histoire)
+                    <a href="{{ route('histoireDetail', ['histoire_id' => $histoire->id]) }}" class="carousel__slide">
+                        <span>{{ $histoire->titre }}</span>
+                        <img src="{{$histoire->photo}}" alt="Image calculée">
+                    </a>
+                @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+
+        @else
+        <p>Aucune histoire pour ce genre.</p>
+        @endif
+    @endforeach
+</div>
 @endsection

@@ -31,3 +31,36 @@ targetsElements.forEach((element) => {
     observer.observe(element);
 });
 
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function() {
+    var currentIndex = 0;
+    var slideWidth = $('.carousel__slide').outerWidth();
+
+    $('.carousel__button--right').on('click', function() {
+        if (currentIndex < $('.carousel__slide').length - 1) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    $('.carousel__button--left').on('click', function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    function updateCarousel() {
+        var translateValue = -currentIndex * slideWidth;
+        $('.carousel__track').css('transform', 'translateX(' + translateValue + 'px)');
+    }
+});
