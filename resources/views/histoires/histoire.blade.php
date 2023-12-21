@@ -1,5 +1,8 @@
-@extends("templates.app")
+@extends('templates.app')
 
+@section('css')
+  
+@append
 
 @section('content')
     @vite('resources/css/detailhistoire.css')
@@ -79,5 +82,5 @@
     <script>
         lucide.createIcons();
     </script>
+</div>
 @endsection
-

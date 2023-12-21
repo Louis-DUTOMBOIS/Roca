@@ -5,7 +5,9 @@ export default defineConfig({
     plugins: [
         laravel({
             input: ['resources/css/normalize.css', 'resources/css/app.css', 'resources/js/app.js',
-                'resources/css/test-vite.css', 'resources/css/equipe.css', 'resources/js/test-vite.js'],
+
+                'resources/css/test-vite.css', 'resources/css/welcome.css', 'resources/css/equipe.css','resources/css/register.css', 'resources/css/login.css', 'resources/js/test-vite.js'],
+
             refresh: true,
         }),
     ],

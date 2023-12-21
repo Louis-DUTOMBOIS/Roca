@@ -1,10 +1,15 @@
-@extends("templates.app")
+@extends('templates.app')
+
+@section('css')
+  
+@append
 
 @section('content')
 <div>
     @vite('resources/css/creeHistoire.css')
 
     <form action="{{route('histoire.create')}}" method="post" enctype="multipart/form-data" >
+
         @csrf
         <div class="form-header">
             <h3 class="h3-createhistoire">Commence la rédaction de ton histoire</h3>
@@ -43,5 +48,4 @@
             <input type="submit" value="Suivant" name="submit" class="creehistoire-suivant">
         </div>
     </form>
-</div>
 @endsection
