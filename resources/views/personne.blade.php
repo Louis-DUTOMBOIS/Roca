@@ -18,7 +18,7 @@
         <form action="{{ route('profile.upload') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div>
-                <h2>Choix d'une photo de profil : </h2>
+                <h2>Choix d'une photo de profil :</h2>
             </div>
             <div>
                 <label for="doc">Image : </label>
