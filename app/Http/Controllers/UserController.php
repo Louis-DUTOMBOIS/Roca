@@ -36,14 +36,17 @@ class UserController extends Controller
         $usersCount = User::where('name', 'LIKE', "%$searchTerm%")->count();
         $histoiresCount = Histoire::where('titre', 'LIKE', "%$searchTerm%")->count();
 
+        $story = Histoire::all();
+
         if ($usersCount > 10 || $histoiresCount > 10) {
             return view('welcome', ['users' => $users, 'histoires' => $histoires, 'genres' => $genres,
-                'searchTerm' => $searchTerm,'histoiresParGenre'=>$histoiresParGenre])
+                'searchTerm' => $searchTerm,'histoiresParGenre'=>$histoiresParGenre,'story'=>$story])
                 ->with('moreThanTenResults', true);
         }
 
+
         return view('welcome', ['users' => $users, 'histoires' => $histoires, 'genres' => $genres,
-            'searchTerm' => $searchTerm,'histoiresParGenre'=>$histoiresParGenre]);
+            'searchTerm' => $searchTerm,'histoiresParGenre'=>$histoiresParGenre, 'story'=>$story]);
     }
 
     public function show($id)
