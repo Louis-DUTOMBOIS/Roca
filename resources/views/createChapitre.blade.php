@@ -1,5 +1,9 @@
 @extends("templates.app")
 
+@section('css')
+
+@append
+
 @section('content')
     <div>
         <form action="{{route('chapitre.create')}}" method="post" enctype="multipart/form-data" >
