@@ -53,7 +53,7 @@
                     <td>{{ $histoire->titre }}</td>
                     <td>{{ $histoire->pitch }}</td>
                     <td><img src="{{ $histoire->photo }}" alt="Image calculée"></td>
-                    <!-- Ajoutez d'autres colonnes au besoin -->
+
                 </tr>
                 @endforeach
             </tbody>
@@ -78,6 +78,8 @@
                 </svg>Liste de lecture</button>
         </div>
     </div>
+
+
 </div>
 
 <div>
@@ -111,7 +113,7 @@
         <button type="submit">Filtrer</button>
     </form>
     @foreach ($histoiresParGenre as $genreLabel => $histoires)
-    <h2>{{ $genreLabel }}</h2>
+        <h2>{{ $histoires[0]->genre->label }}</h2>
     @if (count($histoires) > 0)
     <table>
         <thead>
@@ -137,5 +139,6 @@
     <p>Aucune histoire pour ce genre.</p>
     @endif
     @endforeach
+</div>
 </div>
 @endsection
