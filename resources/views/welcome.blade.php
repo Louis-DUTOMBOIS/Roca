@@ -32,7 +32,7 @@
         <h4>Utilisateurs :</h4>
         <ul>
             @foreach($users as $user)
-            <li>{{ $user->name }}</li>
+            <li>{{ $user->name }}</li> <button><a href="{{ route('user.show', $user->id) }}">Informations</a></button>
             @endforeach
         </ul>
         @endif
@@ -53,7 +53,7 @@
                     <td>{{ $histoire->titre }}</td>
                     <td>{{ $histoire->pitch }}</td>
                     <td><img src="{{ $histoire->photo }}" alt="Image calculée"></td>
-                    <!-- Ajoutez d'autres colonnes au besoin -->
+
                 </tr>
                 @endforeach
             </tbody>
@@ -78,6 +78,8 @@
                 </svg>Liste de lecture</button>
         </div>
     </div>
+
+
 </div>
 
 <div class="container">
