@@ -2,7 +2,7 @@
 
 
 @section('css')
-@vite([ 'resources/css/welcome.css' ])
+    @vite('resources/css/welcome.css')
 @append
 
 @section('content')
