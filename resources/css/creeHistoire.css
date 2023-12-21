@@ -1,0 +1,70 @@
+.h3-createhistoire{
+    margin-top: 3rem;
+    color: var(--Common-Neutral-Hightest, #FFF);
+    font-family: Albert Sans;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 111.111% */
+}
+
+.p-description-createhistoire{
+    color: var(--Common-Neutral-Highter, #F1F5F9);
+    font-family: Albert Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 165%; /* 26.4px */
+}
+
+.textarea-createhistoire{
+    width: 100%;
+    background-color: #0F172A;
+    border: none;
+    color: #64748B;
+    height: 10rem;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+.creehistoire-suivant{
+    border-radius: 8px;
+    border: 1px solid  #475569; 
+    background-color: #6E7FFF;
+    color: #161353;
+    padding: 12px 24px;
+    font-family: Albert Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; 
+    border: none;
+    width: 100%;
+    transition: .3s;
+    margin-bottom: 3rem;
+}
+
+.creehistoire-suivant:hover{
+    background-color: #3631CC;
+    transition: .3s;
+    cursor: pointer;
+    color: #889CF7;
+}
+
+.genre-createhistoire{
+    width: 100%;
+    background-color: #0F172A;
+    border: none;
+    color: #64748B;
+    height: 1rem;
+}
+
+.file-createhistoire{
+    opacity: 0;
+}
+
+.file-createhistoire:hover{
+    cursor: pointer;
+}

@@ -99,4 +99,29 @@ class ChapitreController extends Controller
     {
         //
     }
+
+    public function lierChapitres(Request $request)
+    {
+        // Valider les données du formulaire
+        $this->validate($request, [
+            'chapitre_actuel' => 'required',
+            'chapitre_suivant' => 'required',
+        ]);
+
+        // Récupérer les identifiants des chapitres
+        $chapitreActuelId = $request->input('chapitre_actuel');
+        $chapitreSuivantId = $request->input('chapitre_suivant');
+
+        // Logique pour lier les chapitres (à adapter selon ta structure de données)
+        $chapitreActuel = Chapitre::find($chapitreActuelId);
+        $chapitreSuivant = Chapitre::find($chapitreSuivantId);
+
+        // Exemple de liaison : enregistrer l'ID du chapitre suivant dans le champ du chapitre actuel
+        $chapitreActuel->chapitre_suivant_id = $chapitreSuivantId;
+        $chapitreActuel->save();
+
+        // Redirection ou traitement supplémentaire si nécessaire
+        return redirect()->back()->with('success', 'Chapitres liés avec succès !');
+    }
+
 }
