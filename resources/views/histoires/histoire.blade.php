@@ -5,49 +5,82 @@
 @append
 
 @section('content')
-<div class="detail">
-    <h1>Détails de la scène</h1>
+    @vite('resources/css/detailhistoire.css')
 
-    <h2>{{ $histoire->titre }}</h2>
-    <p>Description : {{ $histoire->pitch }}</p>
+    <div class="detail maxwidth-histoire">
 
-    <img src="{{$histoire->photo}}" alt="Image calculée">
+    <div class="flex-detailhistoire">
 
-    <p>Nombre de lectures total terminé : {{ $histoire->terminees->sum('pivot.nombre') }}</p>
+        <div class="relative-detailhistoire scroll hidden">
+            <img class="histoire-img" src="{{$histoire->photo}}" alt="Image calculée">
+            <form method="POST" action="{{ route('startReading') }}">
+                @csrf
+                <input type="hidden" name="histoire_id" value="{{ $histoire->id }}">
+                <!-- <img class="icon-play" src="images/Play.png" alt=""> -->
+                <button type="submit"><i data-lucide="play"></i>Lire</button>
+            </form>
+        </div>
 
-    <p>Nombre d'avis : {{ $histoire->avis()->count()  }}</p>
+        <div class="scroll hidden transitiondelay">
 
-    <p>Auteur de la scène : {{ $histoire->user->name }}</p>
+            <h2>{{ $histoire->titre }}</h2>
+            
+            <div class="flex-nbchapitres">
 
-    <p>Nombre de chapitres : {{ $histoire->chapitres->count() }}</p>
+                <div class="nb-chapitres">
+                    <h3>{{ $histoire->chapitres->count() }}</h3>
+                    <p>chapitres</p>
+                </div>
+                
+                <div class="nb-chapitres">
+                    <h3>{{ $histoire->terminees->sum('pivot.nombre') }}</h3>
+                    <p>Nombre de lecteurs</p>
+                </div>
+                
+                <div class="nb-chapitres">
+                    <h3>{{ $histoire->avis()->count()  }}</h3>
+                    <p>Avis</p>
+                </div>          
+            </div>
 
-    <form method="POST" action="{{ route('startReading') }}">
-        @csrf
-        <input type="hidden" name="histoire_id" value="{{ $histoire->id }}">
-        <button type="submit">Commencer la lecture</button>
-    </form>
+            <p class="description">{{ $histoire->pitch }}</p>
+            
+            <p class="auteur">Auteur : <span>{{ $histoire->user->name }}</span></p>
+            
+        </div>
+            
+    </div>
+        
+        
+        
+        <h3 class="commentaires-avis scroll hidden">Ajouter un commentaire :</h3>
+        @auth
+            <form method="POST" action="{{ route('ajouterAvis') }}">
+                @csrf
+                <input type="hidden" name="histoire_id" value="{{ $histoire->id }}">
+                <textarea name="contenu" placeholder="Votre commentaire ici" class="detail-histoire-textarea"></textarea>
+                <button type="submit" class="detail-histoire-submit">Ajouter un commentaire</button>
+            </form>
+        @endauth
 
-    @auth
-        <form method="POST" action="{{ route('ajouterAvis') }}">
-            @csrf
-            <input type="hidden" name="histoire_id" value="{{ $histoire->id }}">
-            <textarea name="contenu" placeholder="Votre commentaire ici"></textarea>
-            <button type="submit">Ajouter un commentaire</button>
-        </form>
-    @endauth
 
+        <h3 class="commentaires-avis scroll hidden">Commentaires</h3>
+        <ul class="ul-commentaire scroll hidden">
+            @foreach($histoire->avis as $avis)
+                <li class="li-commentaire">
+                    <p>Utilisateur : <button><a href="{{ route('user.show', $avis->user->id) }}" class="avis-user-name">{{ $avis->user->name }}</a></button></p>
 
-    <h3>Avis sur cette histoire :</h3>
-    <ul>
-        @foreach($histoire->avis as $avis)
-            <li>
-                <p>Utilisateur : <button><a href="{{ route('user.show', $avis->user->id) }}">{{ $avis->user->name }}</a></button></p>
+                    <p>{{ $avis->contenu }}</p>
+                    <!-- Ajoutez d'autres détails de l'avis au besoin -->
+                </li>
+            @endforeach
+        </ul>
 
-                <p>Commentaire : {{ $avis->contenu }}</p>
-                <!-- Ajoutez d'autres détails de l'avis au besoin -->
-            </li>
-        @endforeach
-    </ul>
+    </div>
 
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </div>
 @endsection
