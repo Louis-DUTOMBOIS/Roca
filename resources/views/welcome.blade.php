@@ -32,7 +32,7 @@
         <h4>Utilisateurs :</h4>
         <ul>
             @foreach($users as $user)
-            <li>{{ $user->name }}</li>
+            <li>{{ $user->name }}</li> <button><a href="{{ route('user.show', $user->id) }}">Informations</a></button>
             @endforeach
         </ul>
         @endif

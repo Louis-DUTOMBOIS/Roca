@@ -32,6 +32,8 @@ Route::get('/equipe', function () {
     return view('contact');
 })->name("contact");
 
+// faire route a propos
+
 // Route pour l'index de l'équipe
 Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe');
 
@@ -73,3 +75,6 @@ Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
 Route::post('/start-reading', [HistoireController::class, 'startReading'])->name('startReading');
 Route::get('/chapitres/{chapitre_id}', [HistoireController::class, 'showChapitreDetails'])->name('chapitreDetails');
 Route::post('/make-choice', [HistoireController::class, 'makeChoice'])->name('makeChoice');
+
+//route pour ajouter un commentaire
+Route::post('/ajouter-avis', [HistoireController::class, 'ajouterAvis'])->name('ajouterAvis');

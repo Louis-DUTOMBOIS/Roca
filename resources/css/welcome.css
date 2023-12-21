@@ -1,0 +1,85 @@
+.welcomeBanner {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5rem;
+}
+
+.welcomeLeftBanner {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+
+    justify-content: flex-start;
+}
+
+.welcomeLeftBanner h1 {
+    font-size: 80px;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 70px;
+}
+
+.welcomeLeftBanner h1 span {
+    font-size: 80px;
+    color: #6e7fff;
+}
+
+
+.welcomeLeftBanner p {
+    color: var(--Common-Neutral-Hight, #CBD5E1);
+    text-shadow: 0px 9px 50px rgba(0, 0, 0, 0.45);
+    /* Text/Large */
+    font-family: Albert Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    /* 155.556% */
+}
+
+.welcomeRightBanner img {
+    width: 325px;
+    height: 455px;
+    border-radius: 16px;
+}
+
+.welcomeLeftBanner form {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.welcomeLeftBanner input {
+    display: flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+
+    border-radius: var(--Input-Border-radius, 8px);
+    border: 1px solid var(--Input-Primary-Default-Border, #64748B);
+    background: var(--Input-Primary-Default-Background, #0F172A);
+    color: #64748B;
+
+}
+
+::placeholder {
+    color: #64748B;
+}
+
+.welcomeLeftBanner button {
+    display: flex;
+    padding: var(--sizes-button-input-nav-large-padding-v, 12px) var(--sizes-button-input-nav-large-padding-h, 24px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--sizes-button-input-nav-large-gap, 8px);
+
+    border-radius: var(--Button-Border-radius, 8px);
+    border: 1px solid var(--Button-Light-Default-Border, rgba(255, 255, 255, 0.00));
+    background-color: var(--Button-Light-Default-Background, rgba(255, 255, 255, 0.30)) ;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+}
