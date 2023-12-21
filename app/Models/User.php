@@ -11,6 +11,10 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function stories()
+    {
+        return $this->hasMany(\App\Models\Histoire::class, 'user_id');
+    }
 
     public function mesHistoires() {
         return $this->hasMany(Histoire::class);
@@ -61,4 +65,6 @@ class User extends Authenticatable {
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
 }

@@ -1,117 +1,177 @@
-{{-- @extends('templates.app')
+@extends('templates.app')
 
 @section('css')
     @vite("resources/css/account.css")
-@endsection --}}
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{{isset($title) ? $title : "Page en cours"}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    @vite(["resources/css/normalize.css", 'resources/css/app.css', 'resources/js/app.js', 'resources/css/account.css'])
-</head>
-<body>
-<header>Ma super application</header>
-<nav>
-    <a href="{{route('index')}}">Accueil</a>
-    <a href="{{route('test-vite')}}">Test Vite</a>
-    <a href="#">Contact</a>
-    <a href="{{route('equipe')}}">Equipe</a>
-
-@auth
-        {{Auth::user()->name}}
-        <a href="{{route("logout")}}"
-           onclick="document.getElementById('logout').submit(); return false;">Logout</a>
-        <form id="logout" action="{{route("logout")}}" method="post">
-            @csrf
-        </form>
-    @else
-        <a href="{{route("login")}}">Login</a>
-        <a href="{{route("register")}}">Register</a>
-    @endauth
-</nav>
+@endsection
 
 
-
-
-
-
-
-<main>
-    {{-- @yield("content") --}}
+    @section("content")
     @auth
     <div id="accountContainer">
+        
+        <img src="images/SecondaryIcon.jpg" class="accountBG"/>
         
         <img src="images/Pencil-line.svg" alt="un triangle avec trois côtés égaux" height="16" width="16" class="accountIcon"/>
         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Image de l'utilisateur" id="profilPic">
         {{-- <img src="{{ Storage::url(Auth::user()->avatar_lien) }}" alt="Image de l'utilisateur"> --}}
         
-        <p>{{ Auth::user()->name }}</p>
-        <p>{{ Auth::user()->email }}</p>
+        <h1>{{ Auth::user()->name }}</h1>
+        <p class="userMail">{{ Auth::user()->email }}</p>
 
-        <a href="{{route("logout")}}"
+        {{-- <a href="{{route("logout")}}"
            onclick="document.getElementById('logout').submit(); return false;">Logout</a>
         <form id="logout" action="{{route("logout")}}" method="post">
             @csrf
-        </form>
+        </form> --}}
     
 
 
         <div class="modal">
-            <span class="closeM">ESC</span>
+            <span class="closeM">Press ESC</span>
             <div class="modalContent">
                 <form action="{{ route('profile.upload') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div>
-                        <input type="file" name="document" id="doc">
+                    <div class=".upload-btn-wrapper">
+                        <label for="file" class="label-file" id="label-file">Choisir une image</label>
+                        <input type="file" name="file" id="file" class="input-file" onchange="previewImage()">
+                        <div id="previewImageContainer"></div>
+                        <input type="submit" value="Valider" name="submit" class="submit" id="submit">
                     </div>
-                    <input type="submit" value="Télécharger" name="submit">
                 </form>
             </div>
         </div>
-        
     </div>
-        @endauth
-</main>
+    <div class="accountListes">
 
-<footer>IUT de Lens</footer>
+        <div class="maListe scroll hidden">
+            <h1>Ma liste de lecture</h1>
+            <div class="maListeCards">
+                <div class="maListeCard">
+                    <div class="labeldiv">
+                        <p>Label</p>
+                        <img src="images/book_cover1.jpg" alt="" srcset="" class="cover">
+                    </div>
+                    <span>Titre Histoire</span>
+                </div>
+                <div class="maListeCard">
+                    <div class="labeldiv">
+                        <p>Label</p>
+                        <img src="images/book_cover2.jpg" alt="" srcset="" class="cover">
+                    </div>
+                    <span>Titre Histoire</span>
+                </div>
+                <div class="maListeCard">
+                    <div class="labeldiv">
+                        <p>Label</p>
+                        <img src="images/book_cover3.jpg" alt="" srcset="" class="cover">
+                    </div>
+                    <span>Titre Histoire</span>
+                </div>
+            </div>
+        </div>
+        <div class="maListe scroll hidden">
+            <h1>Reprendre l'écriture</h1>
+            <div class="maListeCards">
+                <div class="maListeCard">
+                    <div class="reprendreImgBtn">
+                        <img src="images/book_cover3.jpg" alt="" srcset="" class="cover">
+                        <button>Continuer</button>
+                    </div>
+                    <span>Titre Histoire</span>
+                </div>
+                <div class="maListeCard">
+                    <div class="reprendreImgBtn">
+                        <img src="images/book_cover1.jpg" alt="" srcset="" class="cover">
+                        <button>Continuer</button>
+                    </div>
+                    <span>Titre Histoire</span>
+                </div>
+            </div>
+        </div>
+        <div class="maListe scroll hidden">
+            <h1>Mes chefs-d'œuvre</h1>
+            <div class="maListeCards">
+                <div class="maListeCard">
+                    <div class="labeldiv">
+                        <p>Label</p>
+                        <img src="images/book_cover1.jpg" alt="" srcset="" class="cover">
+                    </div>
+                    <span>Titre Histoire</span>
+                </div>
+                <div class="maListeCard">
+                    <div class="labeldiv">
+                        <p>Label</p>
+                        <img src="images/book_cover3.jpg" alt="" srcset="" class="cover">
+                    </div>
+                    <span>Titre Histoire</span>
+                </div>
+                <div class="maListeCard">
+                    <div class="labeldiv">
+                        <p>Label</p>
+                        <img src="images/book_cover2.jpg" alt="" srcset="" class="cover">
+                    </div>
+                    <span>Titre Histoire</span>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <script>
+        const icon = document.querySelector(".accountIcon")
+        const modal = document.querySelector(".modal")
+        const modalImg = document.querySelector(".modalImg")
+        const modalTxt = document.querySelector(".modalTxt")
+        const closeM = document.querySelector(".closeM")
+    
+    
+    
+        icon.addEventListener("click", (e) => {
+            console.log(e.target.src)
+            modal.classList.add("appear")
+        })
+    
+        closeM.addEventListener("click", () => {
+            modal.classList.add("appear");
+        })
+    
+    
+    
+    
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modal.classList.remove("appear");
+            }
+        });
 
-<script>
-    const icon = document.querySelector(".accountIcon")
-    const modal = document.querySelector(".modal")
-    const modalImg = document.querySelector(".modalImg")
-    const modalTxt = document.querySelector(".modalTxt")
-    const closeM = document.querySelector(".closeM")
 
+        // Prévisu de l'image uploadée
 
-
-    icon.addEventListener("click", (e) => {
-        console.log(e.target.src)
-        modal.classList.add("appear")
-    })
-
-    closeM.addEventListener("click", () => {
-        modal.classList.add("appear");
-    })
-
-
-
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            modal.classList.remove("appear");
+        function previewImage() {
+        const fileInput = document.getElementById('file');
+        const submit = document.getElementById('submit');
+        const file = fileInput.files[0];
+        const imagePreviewContainer = document.getElementById('previewImageContainer');
+        
+        if(file.type.match('image.*')){
+            const reader = new FileReader();
+            
+            reader.addEventListener('load', function (event) {
+            const imageUrl = event.target.result;
+            const image = new Image();
+            
+            image.addEventListener('load', function() {
+                imagePreviewContainer.innerHTML = ''; // Vider le conteneur au cas où il y aurait déjà des images.
+                imagePreviewContainer.appendChild(image);
+            });
+            
+            image.src = imageUrl;
+            console.log(submit)
+            submit.classList.add('submitVisible')
+            });
+            
+            reader.readAsDataURL(file);
         }
-    });
-</script>
-</body>
-</html>
-
-
-
-
-
-
-
+        }
+    </script>
+        @endauth
+@endsection

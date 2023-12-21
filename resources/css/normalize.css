@@ -24,6 +24,14 @@ body {
     margin: 0;
 }
 
+/*
+ * TO-DO modifier la taille des images
+ */
+img {
+    height: 10px;
+    width: 10px;
+}
+
 /**
  * Render the `main` element consistently in IE.
  */
@@ -185,7 +193,7 @@ input { /* 1 */
 
 button,
 select { /* 1 */
-    text-transform: none;
+    /* text-transform: none; */
 }
 
 /**
@@ -197,6 +205,8 @@ button,
 [type="reset"],
 [type="submit"] {
     -webkit-appearance: button;
+    width: 1;
+    width: f;
 }
 
 /**
