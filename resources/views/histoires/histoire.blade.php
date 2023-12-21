@@ -9,11 +9,11 @@
     <h1>Détails de la scène</h1>
 
 @section('css')
-  
+  @vite('resources/css/detailhistoire.css')
 @append
 
 @section('content')
-    @vite('resources/css/detailhistoire.css')
+    
 
     <div class="detail maxwidth-histoire">
 
