@@ -59,6 +59,20 @@
             @endif
         </div>
         <div>
+            <h2>Cinq histoires aléatoires</h2>
+            <ul>
+                @foreach($story->random(5) as $histoire)
+                    <form method="GET" action="{{ route('histoireDetail') }}">
+                        @csrf
+                        <input type="hidden" name="histoire_id" value="{{ $histoire->id }}">
+                        <button type="submit"><li>{{ $histoire->titre }}</li></button>
+                    </form>
+
+                    <!-- Affichez d'autres détails de l'histoire selon vos besoins -->
+                @endforeach
+            </ul>
+        </div>
+        <div>
             <h1>Liste des histoires</h1>
             <form class="filtre" method="GET" action="{{ route('histoire.filtered') }}">
                 @csrf

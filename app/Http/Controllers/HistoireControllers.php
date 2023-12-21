@@ -15,7 +15,9 @@ class HistoireControllers{
             $histoiresParGenre[$genre->label] = Histoire::where('genre_id', $genre->id)->get();
         }
 
-        return view('welcome', ['histoiresParGenre' => $histoiresParGenre, 'genres' => $genres]);
+        $histoires = Histoire::all();
+
+        return view('welcome', ['histoiresParGenre' => $histoiresParGenre, 'genres' => $genres, 'story'=>$histoires]);
     }
     public function filteredGenre(Request $request)
     {
