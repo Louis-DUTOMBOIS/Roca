@@ -47,12 +47,16 @@ nav {
 
 }
 
+
+
 .rightNav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 24px
-;
+    gap: 24px;
+    color: white;
+    text-decoration: none;
+
 }
 
 .navCTA1 {
