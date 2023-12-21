@@ -1,11 +1,8 @@
-@extends('templates.app')
-
-@section('css')
-  
-@append
 
 
-@content
+
+
+
 @auth
     <h1>Voici vos informations personnelles</h1>
 
@@ -29,4 +26,3 @@
     </div>
 
 @endauth
-@endsection
