@@ -1,0 +1,236 @@
+.detail{
+    padding: 3rem;
+}
+
+.histoire-img{
+    width: 488px;
+    height: 665px;
+    border-radius: 2rem;
+}
+
+.relative-detailhistoire{
+    position: relative;
+}
+
+.relative-detailhistoire form{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    bottom: 1%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+}
+
+.relative-detailhistoire form button{
+    border-radius: 8px;
+    border: 1px solid #CBD5E1;
+    background: #FFF;
+    padding: 12px 24px;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.relative-detailhistoire form button:hover{
+    background-color: #3631CC;
+    transition: .3s;
+    cursor: pointer;
+    color: #889CF7;
+}
+
+.icon-play{
+    width: 100px;
+    color: #000;
+}
+
+.detail h2{
+    color: #FFF;
+    font-family: Albert Sans;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; /* 100% */
+    margin: 2rem 0;
+}
+
+.maxwidth-histoire{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.auteur{
+    color: #FFF;
+    /* Text Bold/Medium */
+    font-family: Albert Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */ 
+    margin: 2rem 0;
+}
+
+.auteur span{
+    color: #6E7FFF;
+}
+
+.description{
+    margin: 2rem 0;
+    color: var(--Common-Neutral-Highter, #F1F5F9);
+    /* Text/Medium */
+    font-family: Albert Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 165%; /* 26.4px */
+}
+
+.nb-chapitres{
+    display: flex;
+    padding: 1rem 5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--Common-Radius-L, 8px);
+    border: 1px solid rgba(255, 255, 255, 0.80);
+    background: var(--Common-Neutral-Lower, #1E293B);
+    width: 15%;
+}
+
+.nb-chapitres h3{
+    margin-bottom: 1rem;
+    color: #FFF;
+    /* Display/H4 */
+    font-family: Albert Sans;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.nb-chapitres p{
+    color: #FFF;
+    text-align: center;
+    /* Text/Large */
+    font-family: Albert Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    border: none;
+}
+
+.ul-commentaire{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+.li-commentaire{
+    display: flex;
+    width: 505px;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.80);
+    background: #1E293B;
+}
+
+.li-commentaire button{
+    border: none;
+    background-color: #1E293B;
+}
+
+.avis-user-name{
+    color: #6E7FFF;
+    /* Label/Medium */
+    font-family: Albert Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    text-decoration: none;
+}
+
+.commentaires-avis{
+    margin: 3rem 0;
+    color: #FFF;
+    font-family: Albert Sans;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.flex-detailhistoire{
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.flex-nbchapitres{
+    display: flex;
+    gap: 2rem;
+}
+
+.detail-histoire-textarea{
+    border-radius: 8px;
+    border: 1px solid #475569;
+    background-color: #0F172A;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    color: #64748B;
+    height: 10rem;
+}
+
+.detail-histoire-submit{
+    border-radius: 8px;
+    border: 1px solid  #475569; 
+    background-color: #6E7FFF;
+    color: #161353;
+    padding: 12px 24px;
+    font-family: Albert Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; 
+    border: none;
+    width: 100%;
+    transition: .3s;
+}
+
+.detail-histoire-submit:hover{
+    background-color: #3631CC;
+    transition: .3s;
+    cursor: pointer;
+    color: #889CF7;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+
+@media screen and (max-width: 800px) {
+    .flex-detailhistoire{
+        flex-direction: column;
+    }
+    .flex-detailhistoire img{
+        width: 100%;
+    }
+    .detail{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .detail h1{
+        font-size: 2rem;
+    }
+    .nb-chapitres{
+        padding: 1rem 3rem;
+    }
+    .nb-chapitres h3{
+        font-family: 1rem;
+    }
+}
