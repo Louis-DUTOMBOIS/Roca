@@ -12,10 +12,20 @@
         <img src="images/SecondaryIcon.jpg" class="accountBG"/>
         
         <img src="images/Pencil-line.svg" alt="un triangle avec trois côtés égaux" height="16" width="16" class="accountIcon"/>
+
+        {{--<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Image de l'utilisateur" id="profilPic">--}}
         <img src="{{ Storage::url(Auth::user()->avatar_lien) }}" alt="Image de l'utilisateur" id="profilPic">
+
         
         <h1>{{ Auth::user()->name }}</h1>
         <p class="userMail">{{ Auth::user()->email }}</p>
+
+        {{-- <a href="{{route("logout")}}"
+           onclick="document.getElementById('logout').submit(); return false;">Logout</a>
+        <form id="logout" action="{{route("logout")}}" method="post">
+            @csrf
+        </form> --}}
+    
 
 
         <div class="modal">

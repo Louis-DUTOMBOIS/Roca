@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="flex-login">
-        <img src="images/imgconnect.png" class="bloc_rouge scroll hidden" alt=""> 
+        <img src="images/coverConnexion.png" class="bloc_rouge scroll hidden" alt=""> 
         
         <div class="scroll hidden transitiondelay">
             <h1 class="h1login">⭐️ Enfin, ça faisait longtemps !</h1>

@@ -48,6 +48,4 @@
             <input type="submit" value="Suivant" name="submit" class="creehistoire-suivant">
         </div>
     </form>
-
-
 @endsection

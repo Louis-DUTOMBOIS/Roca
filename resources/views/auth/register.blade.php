@@ -8,7 +8,7 @@
 @section('content')
 
     <div class="flex-register">
-        <img src="images/imgconnect.png" class="bloc_rouge" alt=""> 
+        <img src="images/coverInscription.png" class="bloc_rouge" alt=""> 
 
             <div>
                 <h1 class="h1login">👋 Ça fait toujours plaisir de t’accueillir !</h1>
