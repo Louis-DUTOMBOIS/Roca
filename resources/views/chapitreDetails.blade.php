@@ -218,7 +218,7 @@ p {
 }
 
 footer {
-    position: relative:important;
+    display: none!important
 }
 </style>
 
