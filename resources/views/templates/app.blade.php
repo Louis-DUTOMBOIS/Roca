@@ -14,6 +14,10 @@
 
     <link rel="stylesheet" href="resources/css/detailhistoire.css">
 
+    <link rel="stylesheet" href="resources/css/account.css">
+
+    
+
 </head>
 <body>
 
