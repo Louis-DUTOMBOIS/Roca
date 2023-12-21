@@ -12,7 +12,7 @@
     <h2>{{ $histoire->titre }}</h2>
     <p>Description : {{ $histoire->pitch }}</p>
 
-    <img src="{{$histoire['photo']}}" alt="Image calculée">
+    <img src="{{$histoire->photo}}" alt="Image calculée">
 
     <p>Nombre de lectures total terminé : {{ $histoire->terminees->sum('pivot.nombre') }}</p>
 
@@ -22,6 +22,11 @@
 
     <p>Nombre de chapitres : {{ $histoire->chapitres->count() }}</p>
 
+    <form method="POST" action="{{ route('startReading') }}">
+        @csrf
+        <input type="hidden" name="histoire_id" value="{{ $histoire->id }}">
+        <button type="submit">Commencer la lecture</button>
+    </form>
 
 </div>
 

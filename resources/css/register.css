@@ -1,0 +1,101 @@
+.h1login{
+    font-family: Albert Sans;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; 
+}
+
+.submitlogin{
+    border-radius: 8px;
+    border: 1px solid  #475569; 
+    background-color: #6E7FFF;
+    color: #161353;
+    padding: 12px 24px;
+    font-family: Albert Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; 
+    border: none;
+    width: 100%;
+    transition: .3s;
+}
+
+.submitlogin:hover{
+    background-color: #3631CC;
+    color: #889CF7;
+    transition: .3s;
+    cursor: pointer;
+}
+
+input{
+    width: 100%;
+    border: none;
+    background-color: #0F172A;
+    color: #475569;
+}
+
+input:focus {
+    outline: none;
+}
+
+form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.no_count{
+    color: #475569;
+}
+
+.no_count .pasdecompte{
+    color : #6E7FFF;
+    font-family: Albert Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */ 
+    text-decoration: none;
+}
+
+fieldset{
+    border-radius: 8px;
+    border: 1px solid #475569;
+    color: #475569;
+}
+
+.bloc_rouge{
+    width: 551px;
+    height: 610px; 
+    background-color: red;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.80); 
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.40) 0%, rgba(0, 0, 0, 0.00) 11.67%), url(<path-to-image>), lightgray 50% / cover no-repea
+}
+
+.flex-register{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+@media screen and (max-width: 800px) {
+    .bloc_rouge{
+        display: none;
+    }
+    .flex-register{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .flex-register div h1{
+        font-size: 2rem;
+    }
+}
+

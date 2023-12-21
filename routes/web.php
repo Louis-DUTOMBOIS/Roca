@@ -20,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function(){
+    return view('welcome');
+})->name('index');
+
 Route::get('/contact', function () {
     return view('contact');
 })->name("contact");
@@ -32,7 +36,7 @@ Route::get('/equipe', function () {
 Route::get('/equipe', [EquipeController::class, 'index'])->name('equipe');
 
 // Route pour l'index de l'équipe
-Route::get('/histoire', [HistoireController::class, 'histoire'])->name('histoire');
+Route::get('/histoire', [HistoireController::class, 'histoire'])->name('histoireDetail');
 
 Route::get('/test-vite', function () {
     return view('test-vite');
@@ -58,5 +62,14 @@ Route::get('/welcome/filtered', [UserController::class, 'filtered'])->name('scen
 
 Route::get('/accueil', [HistoireControllers::class, 'histoire'])->name('histoire');
 Route::get('/', [HistoireControllers::class, 'histoire'])->name('index');
+Route::get('/accueil/filtered', [HistoireControllers::class, 'filteredGenre'])->name('histoire.filtered');
 
 
+
+Route::get('/users/{id}', [UserController::class, 'show'])->name('user.show');
+
+
+// route pour commencer la lecture d'une histoire depuis sa page de détails
+Route::post('/start-reading', [HistoireController::class, 'startReading'])->name('startReading');
+Route::get('/chapitres/{chapitre_id}', [HistoireController::class, 'showChapitreDetails'])->name('chapitreDetails');
+Route::post('/make-choice', [HistoireController::class, 'makeChoice'])->name('makeChoice');

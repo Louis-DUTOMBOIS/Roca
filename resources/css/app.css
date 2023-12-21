@@ -1,10 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html {
     position: relative;
     min-height: 100%;
 }
+
+/* Apparition au défilement */
+
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-in-out;
+}
+   
+.visible {
+    transform: translateY(0px); 
+    opacity: 1;
+} 
+
+.transitiondelay{
+    transition-delay: .1s;
+}
+
+.transitiondelay2{
+    transition-delay: .2s;
+}
+
+.transitiondelay3{
+    transition-delay: .3s;
+}
+
 body {
     /* Margin bottom by footer height */
     margin-bottom: 30px;
+    background-color: #0F172A;
+    color: #FFF;
+    font-family: Albert Sans;
 }
 
 main {
@@ -16,10 +51,46 @@ main {
 
 footer {
     position: absolute;
-    bottom: 0;
     width: 100%;
+    background-color: #18212F;
+    color: #FFF;
+}
 
-    /* Set the fixed height of the footer here */
-    height: 30px;
-    background-color: #f5f5f5;
+nav{
+    background-color: blue;
+    font-family: 'Albert Sans', sans-serif;
+}
+
+.contact{
+    background-color: red;
+}
+
+header{
+    font-size: 3rem;
+    font-family: 'Albert Sans', sans-serif;
+}
+
+.logo-footer{
+    width: 126.44px;
+    height: 40px; 
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.footer-img{
+    display: flex;
+    justify-content: center;
+}
+
+.lien-footer{
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    padding-bottom: 2rem;
+}
+
+.lien-footer a{
+    text-decoration: none;
+    color: #FFF;
 }
