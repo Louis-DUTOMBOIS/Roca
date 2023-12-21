@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chapitre;
 use App\Models\Genre;
 use App\Models\Histoire;
 use Illuminate\Http\Request;
@@ -117,5 +118,51 @@ class HistoireController extends Controller
 
         return view('histoires/histoire', ['histoire' => $histoire]);
     }
+
+    public function startReading(Request $request)
+    {
+        $histoireId = $request->input('histoire_id');
+
+        // Récupérer l'histoire en utilisant l'ID
+        $histoire = Histoire::find($histoireId);
+
+        // Récupérer le premier chapitre de l'histoire
+        $premierChapitre = $histoire->chapitres()->where('premier', true)->first();
+
+        // Rediriger vers la page du premier chapitre pour commencer la lecture
+        return redirect()->route('chapitreDetails', ['chapitre_id' => $premierChapitre->id]);
+    }
+
+    public function showChapitreDetails(string $chapitre_id)
+    {
+        // Récupérer le chapitre en utilisant l'ID
+        $chapitre = Chapitre::findOrFail($chapitre_id);
+
+        return view('chapitreDetails', ['chapitre' => $chapitre]);
+    }
+
+    public function makeChoice(Request $request)
+    {
+        $chapitreId = $request->input('chapitre_id');
+        $reponseId = $request->input('reponse');
+
+        // Récupérer le chapitre actuel
+        $chapitreActuel = Chapitre::findOrFail($chapitreId);
+
+        // Récupérer le chapitre suivant en fonction de la réponse choisie
+        $chapitreSuivant = $chapitreActuel->suivants()->where('id', $reponseId)->first();
+
+        if ($chapitreSuivant) {
+            // Redirection vers la page du chapitre suivant
+            return redirect()->route('chapitreDetails', ['chapitre_id' => $chapitreSuivant->id]);
+        } else {
+            // Gestion de la fin de l'histoire
+            return view('finHistoire');
+        }
+    }
+
+
+
+
 
 }
