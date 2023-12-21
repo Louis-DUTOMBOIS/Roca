@@ -30,3 +30,4 @@ targetsElements.forEach((element) => {
     // Commencez l'observation de l'élément cible
     observer.observe(element);
 });
+
