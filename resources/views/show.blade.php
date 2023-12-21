@@ -31,5 +31,16 @@
         <p>Pas d'histoire écrite par {{ $user->name }}.</p>
     @endif
 
+
+        <h2>Histoires terminées par {{ $user->name }}</h2>
+        <ul>
+            @foreach($user->terminees as $terminee)
+                <li>{{ $terminee->titre }}</li>
+                <li>{{ $terminee->pivot->nombre }} fois terminée</li>
+            @endforeach
+        </ul>
+
+
+
 </body>
 </html>
