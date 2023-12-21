@@ -11,11 +11,11 @@ class ProfilController extends Controller
 {
     public function upload(Request $request) {
         $personne = $request->user();
-        if ($request->hasFile('document') && $request->file('document')->isValid()) {
-            $file = $request->file('document');
+        if ($request->hasFile('file') && $request->file('file')->isValid()) {
+            $file = $request->file('file');
         } else {
             $msg = "Aucun fichier téléchargé";
-            return redirect()->route('personnes.show', [$personne->id])
+            return redirect()->route('personne.show', [$personne->id])
                 ->with('type', 'primary')
                 ->with('msg', 'Smartphone non modifié ('. $msg . ')');
         }
@@ -31,7 +31,7 @@ class ProfilController extends Controller
         $personne->avatar_lien = 'images/'.$nom;
         $personne->save();
         //$file->store('docs');
-        return redirect()->route('personne.show', [$personne->id])
+        return redirect()->route('profil', [$personne->id])
             ->with('type', 'primary')
             ->with('msg', 'Image modifiée avec succès');
     }

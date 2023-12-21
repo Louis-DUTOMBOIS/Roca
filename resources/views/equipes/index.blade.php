@@ -1,33 +1,51 @@
 @extends('templates.app')
 
-@section('css')
-
-@append
-
 @section('content')
-<div>
-    <h1>{{$equipe['nomEquipe']}}</h1>
-    <img src="{{$equipe['logo']}}" alt="Logo de l'équipe">
 
-    <p><strong>Slogan:</strong> {{$equipe['slogan']}}</p>
-    <p><strong>Localisation:</strong> Salle {{$equipe['localisation']}}</p>
+    @vite(['resources/css/equipe.css'])
+    <div class="maxwidth-equipe">
 
-    <h2>Membres de l'équipe :</h2>
-    <ul>
-        @foreach($equipe['membres'] as $membre)
-        <li>
-            <h3>{{$membre['prenom']}}  {{$membre['nom']}}</h3>
-            <img src="{{$membre['image']}}" alt="Photo de {{$membre['prenom']}}">
-            <p><strong>Fonctions:</strong> </p>
-            @foreach($membre['fonctions'] as $fonction)
-                <p>{{$fonction}}</p>
-            @endforeach
-        </li>
-        @endforeach
-    </ul>
+        <h2 class="h2membre-equipe scroll hidden">Membres de l'équipe :</h2>
 
-    <p><strong>Autres informations:</strong> {{$equipe['autres']}}</p>
-</div>
+        <ul class="equipe-all scroll hidden transitiondelay">
+            <li>
+                <img src="/images/Alex.png" alt="">
+                <p>Alex</p>
+            </li>
+            <li>
+                <img src="/images/ThéoInfo.png" alt="">
+                <p>Théo</p>
+            </li>
+            <li>
+                <img src="/images/HugoInfo.png" alt="">
+                <p>Hugo</p>
+            </li>
+            <li>
+                <img src="/images/LouisInfo.png" alt="">
+                <p>Louis</p>
+            </li>
+            <li>
+                <img src="/images/LucasMMI.png" alt="">
+                <p>Lucas</p>
+            </li>
+            <li>
+                <img src="/images/TanguyMMI.png" alt="">
+                <p>Tanguy</p>
+            </li>
+            <li>
+                <img src="/images/LouisMMI.png" alt="">
+                <p>Louis</p>
+            </li>
+            <li>
+                <img src="/images/GautierMMI.png" alt="">
+                <p>Gautier</p>
+            </li>
+            <li>
+                <img src="/images/Valentin.png" alt="">
+                <p>Valentin</p>
+            </li>
+        </ul>
 
-
+        <img src="images/teambg.jpg" class="picture-team scroll hidden" alt="">
+    </div>
 @endsection

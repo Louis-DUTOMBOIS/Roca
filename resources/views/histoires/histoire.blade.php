@@ -4,6 +4,14 @@
   
 @append
 
+@content
+<div class="detail">
+    <h1>Détails de la scène</h1>
+
+@section('css')
+  
+@append
+
 @section('content')
     @vite('resources/css/detailhistoire.css')
 
@@ -34,7 +42,7 @@
                 
                 <div class="nb-chapitres">
                     <h3>{{ $histoire->terminees->sum('pivot.nombre') }}</h3>
-                    <p>Nombre de lecteurs</p>
+                    <p>Nombre de lectures</p>
                 </div>
                 
                 <div class="nb-chapitres">

@@ -13,4 +13,9 @@ class Lecture extends Pivot
     protected $casts = [
         'sequence' => 'array'
     ];
+
+    public function histoire()
+    {
+        return $this->belongsTo(Histoire::class);
+    }
 }

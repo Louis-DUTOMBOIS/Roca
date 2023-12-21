@@ -70,9 +70,7 @@ fieldset{
 .bloc_rouge{
     width: 551px;
     height: 610px; 
-    background-color: red;
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.80); 
+   
     background: linear-gradient(180deg, rgba(30, 41, 59, 0.40) 0%, rgba(0, 0, 0, 0.00) 11.67%), url(<path-to-image>), lightgray 50% / cover no-repea
 }
 
