@@ -8,19 +8,21 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Redacted+Script:wght@400">
 
-    @vite(['resources/css/equipe.css'])
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans&display=swap" rel="stylesheet">
+
+    @vite(['resources/css/test-vite.css', 'resources/js/test-vite.js'])
     <title>{{$titre ?? "Application Laravel"}}</title>
 </head>
 <body>
 <header>Ma super application</header>
 <nav>
-    <a href="{{route('index')}}">Accueil</a>
+    <a href="{{route('index')}}"><img src="logo.svg" /></a>
     <a href="{{route('test-vite')}}">Test Vite</a>
     <a href="{{route('contact')}}">Contact</a>
-    <a href="{{route('equipe')}}">Equipe</a>
 
     @auth
-
         {{Auth::user()->name}}
         <a href="{{route("logout")}}"
            onclick="document.getElementById('logout').submit(); return false;">Logout</a>
@@ -32,29 +34,9 @@
         <a href="{{route("register")}}">Register</a>
     @endauth
 </nav>
-<div>
-    <h1>{{$equipe['nomEquipe']}}</h1>
-    <img src="{{$equipe['logo']}}" alt="Logo de l'équipe">
-
-    <p><strong>Slogan:</strong> {{$equipe['slogan']}}</p>
-    <p><strong>Localisation:</strong> Salle {{$equipe['localisation']}}</p>
-
-    <h2>Membres de l'équipe :</h2>
-    <ul>
-        @foreach($equipe['membres'] as $membre)
-        <li>
-            <h3>{{$membre['prenom']}}  {{$membre['nom']}}</h3>
-            <img src="{{$membre['image']}}" alt="Photo de {{$membre['prenom']}}">
-            <p><strong>Fonctions:</strong> </p>
-            @foreach($membre['fonctions'] as $fonction)
-                <p>{{$fonction}}</p>
-            @endforeach
-        </li>
-        @endforeach
-    </ul>
-
-    <p><strong>Autres informations:</strong> {{$equipe['autres']}}</p>
-</div>
-
-
-@endsection
+<main class="main-container">
+    {{$slot}}
+</main>
+<footer>IUT de Lens</footer>
+</body>
+</html>

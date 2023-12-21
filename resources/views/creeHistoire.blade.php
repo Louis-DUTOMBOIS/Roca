@@ -34,9 +34,9 @@
             </select>
         </div>
         <div class="form-group">
-            <button class="form-button" type="submit">Enregistrement</button>
+            <input type="submit" value="Enregistrement" name="submit">
         </div>
     </form>
-
-
-    @endsection
+</div>
+</body>
+</html>
