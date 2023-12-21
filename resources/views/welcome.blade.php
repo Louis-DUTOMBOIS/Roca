@@ -1,7 +1,7 @@
 @extends("templates.app")
 
 @section('content')
-    <div style="display: flex;align-items: center; justify-content: center">
+    <div>
         <div>
             @if(session('type') && session('type') === 'warning')
                 <p>{{ session('msg') }}</p>
@@ -12,14 +12,27 @@
                     <a href="{{route('profil')}}" id="informations">Profil</a>
                 </button>
             @endauth
-            <b>Le marathon du WEB 2023 !!!</b>
+            
+            <div class="accueil">
+                <div class="accueil_gauche">      
+                    <h1>Découvre des histoires <span>passionnantes</span></h1>
+                    <p>Roca vous invite à un voyage d’aventure sans précédent. Incarnez des personnages captivants et plongez dans des histoires interactives parsemées de choix multiples. Rejoins nous et commencez votre aventure dès aujourd’hui !</p>
+                    <form method="GET" action="{{ route('scene.filtered') }}">
+                        @csrf
+                        <div class="filtre">
+                            <input type="text" name="name" id="name" placeholder="Nom de l'auteur ou titre de l'histoire">
+                            <div class="button-search">
+                                <img src="images/Icon.png" alt="" class="loop">
+                                <button type="submit">Rechercher</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="accueil_droite">
+                    <img src="images/cover.png" alt="">
+                </div>
+            </div>
 
-            <form class="filtre" method="GET" action="{{ route('scene.filtered') }}">
-                @csrf
-                <label for="name">Rechercher par auteur ou titre :</label>
-                <input type="text" name="name" id="name" placeholder="Nom de l'auteur ou titre de l'histoire">
-                <button type="submit">Rechercher</button>
-            </form>
             @if(isset($users) && $users->isNotEmpty())
                 <h3>Résultats de la recherche pour "{{ $searchTerm }}" :</h3>
 
@@ -58,22 +71,26 @@
                 <p>Tous les résultats n'ont pas été affichés. Il y a plus de 10 utilisateurs ou histoires correspondants.</p>
             @endif
         </div>
-        <div>
-            <h1>Liste des histoires</h1>
-            <form class="filtre" method="GET" action="{{ route('histoire.filtered') }}">
+        <div class="maxwidth-welcome">
+            <h1>Liste des histoires :</h1>
+            <form method="GET" action="{{ route('histoire.filtered') }}">
                 @csrf
-                <label for="genre">Filtrer par Genre :</label>
-                <select name="genre" id="genre">
-                    @if(isset($genres))
-                        @foreach($genres as $genre)
+                <div class="filtre">
+                    <label for="genre" class="genre">Filtrer par Genre :</label>
+                    <div>
+                        <select name="genre" id="genre">
+                            @if(isset($genres))
+                            @foreach($genres as $genre)
                             <option value="{{ $genre->id }}">{{ $genre->label }}</option>
-                        @endforeach
-                    @else
-                        <option>Pas de Genre</option>
-                    @endif
-                </select>
-                <button type="submit">Filtrer</button>
-            </form>
+                            @endforeach
+                            @else
+                            <option>Pas de Genre</option>
+                            @endif
+                        </select>
+                        <button type="submit">Filtrer</button>
+                    </div>
+                </div>
+                </form>
             @foreach ($histoiresParGenre as $genreLabel => $histoires)
                 <h2>{{ $genreLabel }}</h2>
                 @if (count($histoires) > 0)
