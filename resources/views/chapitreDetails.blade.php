@@ -55,7 +55,7 @@
                         @csrf
                         <input type="hidden" name="chapitre_id" value="{{ $chapitre->id }}">
                         <input type="hidden" name="reponse" value="{{ $suivant->id }}">
-                        <button type="submit" class="submit">{{ $suivant->texte }}</button>
+                        <button type="submit" class="submit">{{ $suivant->titrecourt }}</button>
                     </form>
                 @endforeach
             </div>
