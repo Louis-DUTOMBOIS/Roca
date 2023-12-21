@@ -80,24 +80,33 @@
     </div>
 </div>
 
-<div>
-        <h2>Cinq histoires aléatoires</h2>
-        <ul>
-            @foreach($story->random(5) as $histoire)
-                <form method="GET" action="{{ route('histoireDetail') }}">
-                    @csrf
-                    <input type="hidden" name="histoire_id" value="{{ $histoire->id }}">
-                    <button type="submit"><li>{{ $histoire->titre }}</li></button>
-                </form>
+<div class="container">
+    <h2>Cinq histoires selon vos goûts</h2>
+
+    <button class="carousel__button carousel__button--left"><</button>
+    <button class="carousel__button carousel__button--right">></button>
+    <div class="carousel">
+        <div class="filter"></div>
+        <div class="carousel__track-container">
+            <div class="carousel__track">
+            @foreach($story->random(8) as $histoire)
+                <a href="{{ route('histoireDetail', ['histoire_id' => $histoire->id]) }}" class="carousel__slide">
+                    <span>{{ $histoire->titre }}</span>
+                    <div class="tag">{{ $histoire->titre }}</div>
+                    <img src="{{$histoire->photo}}" alt="Image calculée">
+                </a>
+                
             @endforeach
-        </ul>
+            </div>
+        </div>
+       
     </div>
-
-
-<div>
-    <h1>Liste des histoires</h1>
+</div>
+<div class="wrapper_list-histoires">>
+    <h2>Liste des histoires</h2>
     <form class="filtre" method="GET" action="{{ route('histoire.filtered') }}">
         @csrf
+        <div>
         <label for="genre">Filtrer par Genre :</label>
         <select name="genre" id="genre">
             @if(isset($genres))
@@ -108,34 +117,33 @@
             <option>Pas de Genre</option>
             @endif
         </select>
-        <button type="submit">Filtrer</button>
+        </div>
+        <button class="ctaBanner2" type="submit">Filtrer</button>
     </form>
     @foreach ($histoiresParGenre as $genreLabel => $histoires)
-    <h2>{{ $genreLabel }}</h2>
-    @if (count($histoires) > 0)
-    <table>
-        <thead>
-            <tr>
-                <td>Titre</td>
-                <td>Pitch</td>
-                <td>Photo</td>
-                <!-- Ajoutez d'autres colonnes au besoin -->
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($histoires as $histoire)
-            <tr>
-                <td>{{ $histoire->titre }}</td>
-                <td>{{ $histoire->pitch }}</td>
-                <td><img src="{{$histoire->photo}}" alt="Image calculée"></td>
-                <!-- Ajoutez d'autres colonnes au besoin -->
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    @else
-    <p>Aucune histoire pour ce genre.</p>
-    @endif
+    <div class="container">
+        <h2>{{ $genreLabel }}</h2>
+        <button class="carousel__button carousel__button--left"><</button>
+        <button class="carousel__button carousel__button--right">></button>
+        @if (count($histoires) > 0)
+        <div class="carousel">
+        <div class="filter"></div>
+            <div class="carousel__track-container">
+                <div class="carousel__track">
+                @foreach($histoires as $histoire)
+                    <a href="{{ route('histoireDetail', ['histoire_id' => $histoire->id]) }}" class="carousel__slide">
+                        <span>{{ $histoire->titre }}</span>
+                        <img src="{{$histoire->photo}}" alt="Image calculée">
+                    </a>
+                @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+
+        @else
+        <p>Aucune histoire pour ce genre.</p>
+        @endif
     @endforeach
 </div>
 @endsection
