@@ -90,5 +90,12 @@
     <script>
         lucide.createIcons();
     </script>
+
+    <style>
+    footer {
+        position: relative!important
+    }
+
+    </style>
 </div>
 @endsection
