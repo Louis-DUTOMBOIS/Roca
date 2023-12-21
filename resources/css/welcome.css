@@ -103,7 +103,7 @@ body {
 
 .welcomeLeftBanner button {
     display: flex;
-    padding: var(--sizes-button-input-nav-large-padding-v, 0px) var(--sizes-button-input-nav-large-padding-h, 24px);
+    padding: var(--sizes-button-input-nav-large-padding-v, 12px) var(--sizes-button-input-nav-large-padding-h, 24px);
     justify-content: center;
     align-items: center;
     gap: var(--sizes-button-input-nav-large-gap, 8px);
@@ -115,13 +115,14 @@ body {
     backdrop-filter: blur(10px);
     color: #ffffff;
 
-    width: 150px;
+    width: fit-content;
+
 }
 
 
 
-.searchIcon {
-    width: 40px;
+.iconSearch {
+    width: 25px;
     height: auto;
 }
 
