@@ -8,7 +8,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Redacted+Script:wght@400">
 
-    @vite(['resources/css/test-vite.css', 'resources/js/test-vite.js'])
+    @vite(['resources/css/equipe.css'])
     <title>{{$titre ?? "Application Laravel"}}</title>
 </head>
 <body>
@@ -55,6 +55,6 @@
 
     <p><strong>Autres informations:</strong> {{$equipe['autres']}}</p>
 </div>
-<footer>IUT de Lens</footer>
-</body>
-</html>
+
+
+@endsection
